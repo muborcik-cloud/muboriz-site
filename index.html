@@ -1,94 +1,218 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUBORIZ ULTRA STUDIO</title>
+
+<title>MUBORIZ WEB STUDIO</title>
 
 <style>
-body{
+*{
 margin:0;
-font-family:Arial;
-background:radial-gradient(circle at top,#0f3d0f,#000);
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
 color:white;
+}
+
+header{
 text-align:center;
-overflow:hidden;
+padding:60px 20px;
+background:linear-gradient(180deg,#000,#2b1b00);
 }
 
-.glow{
-position:absolute;
-width:300px;
-height:300px;
-background:gold;
-filter:blur(120px);
-opacity:0.2;
-top:10%;
-left:30%;
-animation:move 6s infinite alternate;
-}
-
-@keyframes move{
-from{transform:translateY(0);}
-to{transform:translateY(80px);}
-}
-
-h1{
-margin-top:60px;
-font-size:45px;
+.logo{
+font-size:60px;
 color:gold;
-text-shadow:0 0 20px gold;
+font-weight:bold;
+}
+
+.subtitle{
+font-size:32px;
+margin-top:15px;
+}
+
+.lang{
+text-align:center;
+margin:20px;
+}
+
+.lang button{
+padding:12px 20px;
+margin:5px;
+border:none;
+border-radius:10px;
+font-size:18px;
+background:gold;
+font-weight:bold;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,215,0,0.4);
+background:#111;
+border:2px solid gold;
 margin:20px;
-padding:20px;
-border-radius:20px;
+padding:25px;
+border-radius:25px;
+}
+
+h2{
+color:gold;
+margin-bottom:15px;
+}
+
+.price{
+font-size:28px;
+margin:20px 0;
 }
 
 .btn{
 display:block;
-width:80%;
-margin:10px auto;
-padding:16px;
-border-radius:15px;
+text-align:center;
 text-decoration:none;
-font-weight:bold;
-transition:0.3s;
+padding:18px;
+margin:15px auto;
+width:90%;
+max-width:500px;
+border-radius:15px;
+font-size:22px;
+color:white;
 }
 
-.btn:hover{
-transform:scale(1.05);
+.whatsapp{
+background:#25D366;
 }
 
-.whatsapp{background:#25D366;color:white;}
-.call{background:#2196F3;color:white;}
-.map{background:#FF9800;color:white;}
-.about{background:gold;color:black;}
-.chat{background:#111;color:white;border:1px solid gold;}
+.call{
+background:#007bff;
+}
+
+.route{
+background:#ff9800;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:gold;
+}
+
+.hidden{
+display:none;
+}
 </style>
-</head>
 
+<script>
+function ru(){
+document.getElementById("ru").style.display="block";
+document.getElementById("tj").style.display="none";
+}
+
+function tj(){
+document.getElementById("ru").style.display="none";
+document.getElementById("tj").style.display="block";
+}
+</script>
+
+</head>
 <body>
 
-<div class="glow"></div>
+<header>
+<div style="font-size:60px;">👑</div>
 
-<h1>👑 ULTRA MUBORIZ STUDIO 👑</h1>
+<div class="logo">МУБОРИЗ</div>
 
-<div class="card">
-<p>💻 Premium Web Design</p>
-<p>👤 Мубориз</p>
-<p>📞 +992 011 900 303</p>
+<div class="subtitle">WEB STUDIO</div>
+
+<br>
+
+<h2>Создание сайтов под ключ</h2>
+<p>Душанбе, Таджикистан</p>
+</header>
+
+<div class="lang">
+<button onclick="ru()">🇷🇺 Русский</button>
+<button onclick="tj()">🇹🇯 Тоҷикӣ</button>
 </div>
 
-<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
-<a class="btn call" href="tel:+992011900303">Позвонить</a>
-<a class="btn map" href="https://maps.google.com">Маршрут</a>
+<div id="ru">
 
-<a class="btn about" href="info.html">⭐ Обо мне</a>
-<a class="btn chat" href="chat.html">🤖 ULTRA Чат-бот</a>
+<div class="card">
+<h2>💎 МОИ УСЛУГИ</h2>
+
+<div class="price">💻 Мини-сайт — 100 сомони</div>
+
+<div class="price">🚀 Нормальный сайт — 300 сомони</div>
+
+<div class="price">🏆 Большой сайт — 500 сомони</div>
+</div>
+
+<div class="card">
+<h2>⭐ Почему выбирают меня</h2>
+
+<p>✅ Красивый дизайн</p><br>
+<p>✅ Быстрая работа</p><br>
+<p>✅ Поддержка клиентов</p><br>
+<p>✅ Работа через WhatsApp</p>
+</div>
+
+</div>
+
+<div id="tj" class="hidden">
+
+<div class="card">
+<h2>💎 ХИЗМАТҲОИ МАН</h2>
+
+<div class="price">💻 Мини-сайт — 100 сомонӣ</div>
+
+<div class="price">🚀 Сайти оддӣ — 300 сомонӣ</div>
+
+<div class="price">🏆 Сайти калон — 500 сомонӣ</div>
+</div>
+
+<div class="card">
+<h2>⭐ Афзалиятҳо</h2>
+
+<p>✅ Дизайни зебо</p><br>
+<p>✅ Кори зуд</p><br>
+<p>✅ Дастгирии мизоҷон</p><br>
+<p>✅ Кор тавассути WhatsApp</p>
+</div>
+
+</div>
+
+<div class="card">
+<h2>📞 КОНТАКТЫ</h2>
+
+<p style="font-size:28px;">
++992 011 900 303
+</p>
+
+<a class="btn whatsapp"
+href="https://wa.me/992011900303">
+💬 WhatsApp
+</a>
+
+<a class="btn call"
+href="tel:+992011900303">
+📞 Позвонить
+</a>
+
+<a class="btn route"
+href="https://maps.google.com">
+📍 Построить маршрут
+</a>
+
+</div>
+
+<footer>
+👑 MUBORIZ WEB STUDIO 👑
+<br><br>
+© 2026
+</footer>
 
 </body>
 </html>
