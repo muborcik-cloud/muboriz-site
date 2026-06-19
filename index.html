@@ -1,44 +1,128 @@
-<script>
-function aiReply(text){
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мубориз | Создание сайтов</title>
 
-text = text.toLowerCase();
-
-if(text.includes("босс"))
-return "Наш босс — Мубориз 👑";
-
-if(text.includes("номер"))
-return "📞 +992 011 900 303";
-
-if(text.includes("цена") || text.includes("стоит"))
-return "💰 Мини-сайт — 100 сомони, Средний — 300 сомони, Большой — 500 сомони";
-
-if(text.includes("услуги"))
-return "💻 Создание сайтов под ключ в Душанбе";
-
-if(text.includes("мубориз"))
-return "👤 Мубориз создаёт современные сайты под ключ.";
-
-if(text.includes("whatsapp"))
-return "💬 WhatsApp: +992 011 900 303";
-
-if(text.includes("звонок"))
-return "☎️ Нажмите кнопку Позвонить";
-
-if(text.includes("sms"))
-return "📱 Нажмите кнопку SMS";
-
-if(text.includes("маршрут"))
-return "📍 Нажмите кнопку Маршрут";
-
-if(text.includes("привет"))
-return "👋 Привет! Чем могу помочь?";
-
-if(text.includes("как заказать"))
-return "📝 Напишите в WhatsApp и расскажите какой сайт нужен.";
-
-if(text.includes("сайт"))
-return "🚀 Я помогу выбрать сайт под ваши задачи.";
-
-return "🤖 Здравствуйте! Задайте вопрос про услуги, цены или контакты.";
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
-</script>
+
+body{
+background:linear-gradient(135deg,#ff0000,#990000);
+color:white;
+text-align:center;
+}
+
+header{
+padding:50px 20px;
+}
+
+h1{
+font-size:45px;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:20px;
+opacity:0.9;
+}
+
+.card{
+background:white;
+color:black;
+margin:20px;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.price{
+font-size:28px;
+color:red;
+font-weight:bold;
+}
+
+.btn{
+display:block;
+margin:15px auto;
+padding:15px;
+width:250px;
+background:red;
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+footer{
+padding:30px;
+font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Мубориз</h1>
+<p class="subtitle">
+Создаю красивые сайты под ключ в городе Душанбе
+</p>
+</header>
+
+<div class="card">
+<h2>💎 Миленький сайт</h2>
+<p class="price">100 сомони</p>
+<p>Небольшой красивый сайт для бизнеса.</p>
+</div>
+
+<div class="card">
+<h2>🚀 Средний сайт</h2>
+<p class="price">300 сомони</p>
+<p>Современный сайт с несколькими страницами.</p>
+</div>
+
+<div class="card">
+<h2>🏆 Большой сайт</h2>
+<p class="price">500 сомони</p>
+<p>Большой профессиональный сайт под ключ.</p>
+</div>
+
+<div class="card">
+<h2>👨‍💻 Обо мне</h2>
+<p>
+Меня зовут Мубориз. Я создаю красивые сайты для бизнеса
+в городе Душанбе.
+</p>
+</div>
+
+<a class="btn" href="tel:+992011900303">📞 Позвонить</a>
+
+<a class="btn"
+href="https://wa.me/992011900303">
+💬 WhatsApp
+</a>
+
+<a class="btn"
+href="https://wa.me/992011900303?text=Здравствуйте! Хочу заказать сайт.">
+🛒 Заказать сайт
+</a>
+
+<footer>
+📱 Номер: +992 011 900 303
+</footer>
+
+</body>
+</html>
