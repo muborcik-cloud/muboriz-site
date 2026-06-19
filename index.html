@@ -3,66 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muboriz Studio</title>
+<title>MUBORIZ ULTRA STUDIO</title>
 
 <style>
 body{
 margin:0;
 font-family:Arial;
-background:linear-gradient(135deg,#001a00,#000);
+background:radial-gradient(circle at top,#0f3d0f,#000);
 color:white;
 text-align:center;
+overflow:hidden;
+}
+
+.glow{
+position:absolute;
+width:300px;
+height:300px;
+background:gold;
+filter:blur(120px);
+opacity:0.2;
+top:10%;
+left:30%;
+animation:move 6s infinite alternate;
+}
+
+@keyframes move{
+from{transform:translateY(0);}
+to{transform:translateY(80px);}
 }
 
 h1{
+margin-top:60px;
+font-size:45px;
 color:gold;
-font-size:42px;
-margin-top:40px;
+text-shadow:0 0 20px gold;
 }
 
 .card{
-background:#062a06;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,215,0,0.4);
 margin:20px;
 padding:20px;
-border-radius:15px;
-border:1px solid gold;
+border-radius:20px;
 }
 
 .btn{
 display:block;
 width:80%;
 margin:10px auto;
-padding:15px;
-border-radius:12px;
+padding:16px;
+border-radius:15px;
 text-decoration:none;
 font-weight:bold;
-color:white;
+transition:0.3s;
 }
 
-.green{background:#25D366;}
-.blue{background:#2196F3;}
-.orange{background:#FF9800;}
-.gold{background:gold;color:black;}
-.dark{background:#111;}
+.btn:hover{
+transform:scale(1.05);
+}
+
+.whatsapp{background:#25D366;color:white;}
+.call{background:#2196F3;color:white;}
+.map{background:#FF9800;color:white;}
+.about{background:gold;color:black;}
+.chat{background:#111;color:white;border:1px solid gold;}
 </style>
 </head>
 
 <body>
 
-<h1>👑 MUBORIZ WEB STUDIO</h1>
+<div class="glow"></div>
+
+<h1>👑 ULTRA MUBORIZ STUDIO 👑</h1>
 
 <div class="card">
+<p>💻 Premium Web Design</p>
 <p>👤 Мубориз</p>
 <p>📞 +992 011 900 303</p>
-<p>💻 Создание сайтов</p>
 </div>
 
-<a class="btn green" href="https://wa.me/992011900303">WhatsApp</a>
-<a class="btn blue" href="tel:+992011900303">Позвонить</a>
-<a class="btn orange" href="https://maps.google.com">Маршрут</a>
+<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
+<a class="btn call" href="tel:+992011900303">Позвонить</a>
+<a class="btn map" href="https://maps.google.com">Маршрут</a>
 
-<a class="btn gold" href="info.html">⭐ Обо мне</a>
-<a class="btn dark" href="chat.html">🤖 Чат-бот</a>
+<a class="btn about" href="info.html">⭐ Обо мне</a>
+<a class="btn chat" href="chat.html">🤖 ULTRA Чат-бот</a>
 
 </body>
 </html>
