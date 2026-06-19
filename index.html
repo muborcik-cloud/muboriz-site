@@ -3,202 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ULTRA AI 15</title>
+<title>MUBORIZ WEB STUDIO</title>
 
 <style>
 body{
 margin:0;
-font-family:Arial;
-background:radial-gradient(circle at top,#00ffff22,#000);
+font-family:Arial,sans-serif;
+background:#000;
 color:white;
-overflow:hidden;
+text-align:center;
 }
 
-/* APP */
-.app{
-display:flex;
-height:100vh;
+.header{
+padding:40px 20px;
+background:linear-gradient(135deg,#000,#222);
 }
 
-/* SIDEBAR */
-.sidebar{
-width:270px;
-background:rgba(0,255,255,0.04);
-border-right:1px solid cyan;
-padding:12px;
-backdrop-filter:blur(10px);
+h1{
+font-size:48px;
+color:gold;
 }
 
-.sidebar h2{
-color:cyan;
-text-shadow:0 0 10px cyan;
+.btn{
+display:block;
+width:80%;
+max-width:350px;
+margin:15px auto;
+padding:18px;
+border-radius:20px;
+font-size:24px;
+font-weight:bold;
+text-decoration:none;
+color:white;
 }
 
-input,button{
-width:100%;
-padding:10px;
-margin-top:8px;
-border:none;
-outline:none;
-border-radius:6px;
-}
+.whatsapp{background:#25D366;}
+.call{background:#2196F3;}
+.route{background:#FF9800;}
+.about{background:gold;color:black;}
 
-button{
-background:cyan;
-cursor:pointer;
+.lang{
+margin:20px;
+font-size:18px;
+color:#ccc;
 }
-
-/* CHAT */
-.chat{
-flex:1;
-display:flex;
-flex-direction:column;
-}
-
-.top{
-padding:10px;
-border-bottom:1px solid cyan;
-display:flex;
-justify-content:space-between;
-}
-
-.messages{
-flex:1;
-padding:10px;
-overflow-y:auto;
-}
-
-.input{
-display:flex;
-border-top:1px solid cyan;
-}
-
-.input input{
-flex:1;
-padding:12px;
-border:none;
-outline:none;
-}
-
-.input button{
-background:cyan;
-border:none;
-cursor:pointer;
-padding:12px;
-}
-
-/* messages */
-.msg{margin:6px 0;}
-.user{color:white;}
-.bot{color:cyan;}
-.small{font-size:12px;opacity:0.6;}
-.glow{text-shadow:0 0 8px cyan;}
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="header">
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-<h2 class="glow">⚡ ULTRA 15</h2>
-<p class="small">One-file AI SaaS</p>
+<h1>👑 MUBORIZ WEB STUDIO 👑</h1>
 
-<hr>
+<p class="lang">
+Русский 🇷🇺 | Тоҷикӣ 🇹🇯
+</p>
 
-<input id="user" placeholder="логин..." />
-<button onclick="login()">Login</button>
+<h2>📞 +992 011 900 303</h2>
 
-<hr>
+<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
 
-<p class="small">Status: <span id="status">offline</span></p>
-</div>
+<a class="btn call" href="tel:+992011900303">Позвонить</a>
 
-<!-- CHAT -->
-<div class="chat">
+<a class="btn route" href="https://maps.google.com">Маршрут</a>
 
-<div class="top">
-<div>🤖 AI CORE</div>
-<div class="small">single-file system</div>
-</div>
-
-<div class="messages" id="messages"></div>
-
-<div class="input">
-<input id="msg" placeholder="Напиши..." />
-<button onclick="send()">➤</button>
-</div>
+<a class="btn about" href="info.html">⭐ Обо мне</a>
 
 </div>
-
-</div>
-
-<script>
-
-let user=null;
-let messages=document.getElementById("messages");
-
-/* LOGIN */
-function login(){
-user=document.getElementById("user").value;
-if(!user) return;
-
-document.getElementById("status").innerText="online: "+user;
-load();
-}
-
-/* MEMORY */
-function load(){
-messages.innerHTML = localStorage.getItem("u15_"+user) || "";
-}
-
-function save(){
-localStorage.setItem("u15_"+user, messages.innerHTML);
-}
-
-/* 🧠 AI ENGINE */
-function ai(text){
-text=text.toLowerCase();
-
-if(text.includes("привет"))
-return `Привет ${user} ⚡ ULTRA 15 активен`;
-
-if(text.includes("кто ты"))
-return "Я твой локальный AI движок в одном файле 🤖";
-
-if(text.includes("сайт"))
-return "Ты создал почти SaaS уровень без сервера 🚀";
-
-if(text.includes("openai"))
-return "Можно подключить реальный API для настоящего ChatGPT 🔌";
-
-if(text.includes("цена"))
-return "1100 / 3000 / 10000 ₽";
-
-return "Я обрабатываю твой запрос 🧠⚡";
-}
-
-/* SEND */
-function send(){
-if(!user) return alert("сначала login");
-
-let input=document.getElementById("msg");
-let text=input.value;
-if(!text) return;
-
-messages.innerHTML += `<div class="msg user">${user}: ${text}</div>`;
-input.value="";
-
-setTimeout(()=>{
-let reply = ai(text);
-messages.innerHTML += `<div class="msg bot">AI: ${reply}</div>`;
-save();
-messages.scrollTop = messages.scrollHeight;
-},400);
-}
-
-</script>
 
 </body>
 </html>
