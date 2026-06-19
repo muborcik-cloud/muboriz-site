@@ -8,69 +8,77 @@
 <style>
 body{
 margin:0;
-font-family:Arial,sans-serif;
-background:#000;
+font-family:Arial;
+background:linear-gradient(135deg,#000,#111);
 color:white;
 text-align:center;
 }
 
-.header{
-padding:40px 20px;
-background:linear-gradient(135deg,#000,#222);
+h1{
+color:gold;
+font-size:42px;
+margin-top:30px;
 }
 
-h1{
-font-size:48px;
-color:gold;
+.lang{
+margin:15px;
+}
+
+.lang button{
+padding:8px 15px;
+margin:5px;
+border:none;
+border-radius:8px;
+cursor:pointer;
 }
 
 .btn{
 display:block;
 width:80%;
-max-width:350px;
-margin:15px auto;
-padding:18px;
-border-radius:20px;
-font-size:24px;
-font-weight:bold;
+margin:10px auto;
+padding:15px;
+border-radius:12px;
 text-decoration:none;
+font-weight:bold;
 color:white;
 }
 
 .whatsapp{background:#25D366;}
 .call{background:#2196F3;}
-.route{background:#FF9800;}
+.map{background:#FF9800;}
 .about{background:gold;color:black;}
-
-.lang{
-margin:20px;
-font-size:18px;
-color:#ccc;
-}
+.page{background:#555;}
 </style>
 </head>
 
 <body>
 
-<div class="header">
-
 <h1>👑 MUBORIZ WEB STUDIO 👑</h1>
 
-<p class="lang">
-Русский 🇷🇺 | Тоҷикӣ 🇹🇯
-</p>
+<p id="text">Создание сайтов • Website Creation</p>
 
-<h2>📞 +992 011 900 303</h2>
+<div class="lang">
+<button onclick="setLang('ru')">Русский 🇷🇺</button>
+<button onclick="setLang('tj')">Тоҷикӣ 🇹🇯</button>
+</div>
+
+<p>📞 +992 011 900 303</p>
 
 <a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
-
 <a class="btn call" href="tel:+992011900303">Позвонить</a>
-
-<a class="btn route" href="https://maps.google.com">Маршрут</a>
-
+<a class="btn map" href="https://maps.google.com">Маршрут</a>
 <a class="btn about" href="info.html">⭐ Обо мне</a>
 
-</div>
+<script>
+function setLang(lang){
+if(lang=='ru'){
+document.getElementById('text').innerText="Создание сайтов • Website Creation";
+}
+if(lang=='tj'){
+document.getElementById('text').innerText="Сохтани сайтҳо • Website Creation";
+}
+}
+</script>
 
 </body>
 </html>
