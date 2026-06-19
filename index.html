@@ -1,179 +1,44 @@
-<section id="order">
-
-<h2 class="title">Отправить заявку</h2>
-
-<div class="card">
-
-<form>
-
-<input type="text"
-placeholder="Ваше имя"
-style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:none;">
-
-<input type="tel"
-placeholder="Ваш номер"
-style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:none;">
-
-<textarea
-placeholder="Напишите сообщение"
-style="width:100%;height:150px;padding:15px;border-radius:10px;border:none;">
-</textarea>
-
-<br><br>
-
-<button
-style="padding:15px 30px;background:gold;border:none;border-radius:10px;font-weight:bold;">
-Отправить заявку
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">Чат-Бот MUBORIZ AI</h2>
-
-<div class="chat-box">
-
-<p>
-Задайте вопрос:
-</p>
-
-<input
-id="question"
-placeholder="Например: кто ваш босс?">
-
-<button onclick="askBot()">
-Отправить
-</button>
-
-<button onclick="startVoice()">
-🎤 Микрофон
-</button>
-
-<div id="answer"></div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">Дополнительная информация</h2>
-
-<div class="card">
-
-<h3>MUBORIZ</h3>
-
-<br>
-
-<p>
-Я создаю современные сайты для клиентов.
-Работаю быстро и стараюсь делать красивые проекты.
-</p>
-
-<br>
-
-<p>
-Телефон:
-+992 011 900 303
-</p>
-
-<br>
-
-<p>
-WhatsApp:
-+992 011 900 303
-</p>
-
-</div>
-
-</section>
-
 <script>
+function aiReply(text){
 
-function speak(text){
+text = text.toLowerCase();
 
-let speech =
-new SpeechSynthesisUtterance(text);
+if(text.includes("босс"))
+return "Наш босс — Мубориз 👑";
 
-speech.lang = "ru-RU";
+if(text.includes("номер"))
+return "📞 +992 011 900 303";
 
-window.speechSynthesis.speak(speech);
+if(text.includes("цена") || text.includes("стоит"))
+return "💰 Мини-сайт — 100 сомони, Средний — 300 сомони, Большой — 500 сомони";
 
+if(text.includes("услуги"))
+return "💻 Создание сайтов под ключ в Душанбе";
+
+if(text.includes("мубориз"))
+return "👤 Мубориз создаёт современные сайты под ключ.";
+
+if(text.includes("whatsapp"))
+return "💬 WhatsApp: +992 011 900 303";
+
+if(text.includes("звонок"))
+return "☎️ Нажмите кнопку Позвонить";
+
+if(text.includes("sms"))
+return "📱 Нажмите кнопку SMS";
+
+if(text.includes("маршрут"))
+return "📍 Нажмите кнопку Маршрут";
+
+if(text.includes("привет"))
+return "👋 Привет! Чем могу помочь?";
+
+if(text.includes("как заказать"))
+return "📝 Напишите в WhatsApp и расскажите какой сайт нужен.";
+
+if(text.includes("сайт"))
+return "🚀 Я помогу выбрать сайт под ваши задачи.";
+
+return "🤖 Здравствуйте! Задайте вопрос про услуги, цены или контакты.";
 }
-
-function askBot(){
-
-let q =
-document
-.getElementById("question")
-.value
-.toLowerCase();
-
-let answer =
-"Я не понял вопрос.";
-
-if(q.includes("босс"))
-answer =
-"Наш босс Мубориз.";
-
-else if(q.includes("номер"))
-answer =
-"Номер Мубориза плюс девятьсот девяносто два ноль одиннадцать девятьсот триста три.";
-
-else if(q.includes("цена"))
-answer =
-"Маленький сайт двести сомони, средний триста, большой пятьсот.";
-
-else if(q.includes("услуги"))
-answer =
-"Создание сайтов под ключ.";
-
-document
-.getElementById("answer")
-.innerHTML = answer;
-
-speak(answer);
-
-}
-
-function startVoice(){
-
-const recognition =
-new webkitSpeechRecognition();
-
-recognition.lang =
-"ru-RU";
-
-recognition.start();
-
-recognition.onresult =
-function(event){
-
-let text =
-event.results[0][0].transcript;
-
-document
-.getElementById("question")
-.value = text;
-
-askBot();
-
-};
-
-}
-
 </script>
-
-<footer>
-
-© 2026 MUBORIZ
-
-</footer>
-
-</body>
-</html>
