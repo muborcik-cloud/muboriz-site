@@ -3,94 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUBORIZ WEB STUDIO</title>
+<title>Muboriz Studio</title>
 
 <style>
 body{
 margin:0;
 font-family:Arial;
-background:linear-gradient(135deg,#000,#1a1a1a);
+background:linear-gradient(135deg,#001a00,#000);
 color:white;
 text-align:center;
 }
 
 h1{
 color:gold;
-font-size:45px;
+font-size:42px;
 margin-top:40px;
 }
 
-p{
-opacity:0.8;
-}
-
-.menu{
-margin-top:20px;
+.card{
+background:#062a06;
+margin:20px;
+padding:20px;
+border-radius:15px;
+border:1px solid gold;
 }
 
 .btn{
 display:block;
 width:80%;
-margin:12px auto;
-padding:16px;
-border-radius:15px;
+margin:10px auto;
+padding:15px;
+border-radius:12px;
 text-decoration:none;
 font-weight:bold;
 color:white;
-transition:0.3s;
 }
 
-.btn:hover{
-transform:scale(1.05);
-}
-
-.whatsapp{background:#25D366;}
-.call{background:#2196F3;}
-.map{background:#FF9800;}
-.about{background:gold;color:black;}
-
-.lang button{
-margin:5px;
-padding:8px 12px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
+.green{background:#25D366;}
+.blue{background:#2196F3;}
+.orange{background:#FF9800;}
+.gold{background:gold;color:black;}
+.dark{background:#111;}
 </style>
 </head>
 
 <body>
 
-<h1>👑 MUBORIZ WEB STUDIO 👑</h1>
+<h1>👑 MUBORIZ WEB STUDIO</h1>
 
-<p id="text">Создание сайтов • Website Creation</p>
-
-<div class="lang">
-<button onclick="setLang('ru')">Русский 🇷🇺</button>
-<button onclick="setLang('tj')">Тоҷикӣ 🇹🇯</button>
-</div>
-
+<div class="card">
+<p>👤 Мубориз</p>
 <p>📞 +992 011 900 303</p>
-
-<div class="menu">
-
-<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
-<a class="btn call" href="tel:+992011900303">Позвонить</a>
-<a class="btn map" href="https://maps.google.com">Маршрут</a>
-<a class="btn about" href="info.html">⭐ Обо мне</a>
-
+<p>💻 Создание сайтов</p>
 </div>
 
-<script>
-function setLang(lang){
-if(lang=='ru'){
-document.getElementById('text').innerText="Создание сайтов • Website Creation";
-}
-if(lang=='tj'){
-document.getElementById('text').innerText="Сохтани сайтҳо • Website Creation";
-}
-}
-</script>
+<a class="btn green" href="https://wa.me/992011900303">WhatsApp</a>
+<a class="btn blue" href="tel:+992011900303">Позвонить</a>
+<a class="btn orange" href="https://maps.google.com">Маршрут</a>
+
+<a class="btn gold" href="info.html">⭐ Обо мне</a>
+<a class="btn dark" href="chat.html">🤖 Чат-бот</a>
 
 </body>
 </html>
