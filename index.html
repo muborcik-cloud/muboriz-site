@@ -7,76 +7,94 @@
 
 <style>
 body{
-margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#000,#111);
-color:white;
-text-align:center;
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
 }
 
 h1{
-color:gold;
-font-size:42px;
-margin-top:30px;
+    font-size:32px;
+    margin-top:20px;
 }
 
-.lang{
-margin:15px;
-}
-
-.lang button{
-padding:8px 15px;
-margin:5px;
-border:none;
-border-radius:8px;
-cursor:pointer;
+.sub{
+    opacity:0.8;
+    margin-bottom:20px;
 }
 
 .btn{
-display:block;
-width:80%;
-margin:10px auto;
-padding:15px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
-color:white;
+    display:block;
+    width:80%;
+    margin:10px auto;
+    padding:15px;
+    border-radius:12px;
+    font-size:18px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
 }
 
-.whatsapp{background:#25D366;}
-.call{background:#2196F3;}
-.map{background:#FF9800;}
-.about{background:gold;color:black;}
-.page{background:#555;}
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.whatsapp{background:#22c55e;}
+.call{background:#3b82f6;}
+.map{background:#f59e0b;}
+.info{background:#eab308; color:black;}
+
+.lang{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:15px;
+}
+
+.lang button{
+    padding:8px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<h1>👑 MUBORIZ WEB STUDIO 👑</h1>
+<div class="container">
 
-<p id="text">Создание сайтов • Website Creation</p>
+<h1>👑 MUBORIZ WEB STUDIO 👑</h1>
+<p class="sub" id="text1">Создание сайтов • Website Creation</p>
 
 <div class="lang">
-<button onclick="setLang('ru')">Русский 🇷🇺</button>
-<button onclick="setLang('tj')">Тоҷикӣ 🇹🇯</button>
+<button onclick="ru()">Русский 🇷🇺</button>
+<button onclick="en()">English 🇬🇧</button>
 </div>
 
-<p>📞 +992 011 900 303</p>
-
 <a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
+
 <a class="btn call" href="tel:+992011900303">Позвонить</a>
+
 <a class="btn map" href="https://maps.google.com">Маршрут</a>
-<a class="btn about" href="info.html">⭐ Обо мне</a>
+
+<a class="btn info" href="info.html">⭐ Обо мне</a>
+
+</div>
 
 <script>
-function setLang(lang){
-if(lang=='ru'){
-document.getElementById('text').innerText="Создание сайтов • Website Creation";
+function ru(){
+document.getElementById("text1").innerText="Создание сайтов • Website Creation";
 }
-if(lang=='tj'){
-document.getElementById('text').innerText="Сохтани сайтҳо • Website Creation";
-}
+function en(){
+document.getElementById("text1").innerText="Website Development • Web Studio";
 }
 </script>
 
