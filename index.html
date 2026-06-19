@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUBORIZ WEB STUDIO</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muboriz Web Studio</title>
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
-    text-align:center;
+margin:0;
+font-family: Arial, sans-serif;
+background: radial-gradient(circle at top, #1b1b1b, #0a0a0a);
+color:white;
+text-align:center;
 }
 
 .container{
-    padding:20px;
+padding:20px;
 }
 
 h1{
-    font-size:32px;
-    margin-top:20px;
+font-size:28px;
+margin-top:20px;
+color: gold;
 }
 
-.sub{
-    opacity:0.8;
-    margin-bottom:20px;
+.subtitle{
+color:#bbb;
+margin-bottom:20px;
+}
+
+.lang-buttons button{
+margin:5px;
+padding:10px 15px;
+border-radius:20px;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+.gold-btn{
+background:gold;
+color:black;
 }
 
 .btn{
-    display:block;
-    width:80%;
-    margin:10px auto;
-    padding:15px;
-    border-radius:12px;
-    font-size:18px;
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-    transition:0.3s;
+display:block;
+width:80%;
+margin:10px auto;
+padding:15px;
+border-radius:15px;
+font-size:18px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
 }
+
+.whatsapp{background:#25D366;color:white;}
+.call{background:#1e90ff;color:white;}
+.sms{background:#ff9800;color:white;}
+.route{background:#f1c40f;color:black;}
 
 .btn:hover{
-    transform:scale(1.05);
+transform:scale(1.05);
+opacity:0.9;
 }
 
-.whatsapp{background:#22c55e;}
-.call{background:#3b82f6;}
-.map{background:#f59e0b;}
-.info{background:#eab308; color:black;}
-
-.lang{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin:15px;
+.card{
+background:#111;
+padding:15px;
+margin-top:20px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(255,215,0,0.3);
 }
 
-.lang button{
-    padding:8px 15px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-}
 </style>
 </head>
 
@@ -71,30 +80,70 @@ h1{
 
 <div class="container">
 
-<h1>👑 MUBORIZ WEB STUDIO 👑</h1>
-<p class="sub" id="text1">Создание сайтов • Website Creation</p>
+<h1 id="title">👑 MUBORIZ WEB STUDIO 👑</h1>
+<p class="subtitle" id="subtitle">Создание сайтов • Website Creation</p>
 
-<div class="lang">
-<button onclick="ru()">Русский 🇷🇺</button>
-<button onclick="en()">English 🇬🇧</button>
+<div class="lang-buttons">
+<button class="gold-btn" onclick="setLang('ru')">Русский 🇷🇺</button>
+<button class="gold-btn" onclick="setLang('tj')">Тоҷикӣ 🇹🇯</button>
 </div>
 
-<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
+<div class="card">
+<p id="name">Имя: Мубориз</p>
+<p>📞 +992 011 900 303</p>
+</div>
 
-<a class="btn call" href="tel:+992011900303">Позвонить</a>
+<!-- BUTTONS -->
+<a class="btn whatsapp" id="wa" href="https://wa.me/992011900303" target="_blank">WhatsApp 💬</a>
 
-<a class="btn map" href="https://maps.google.com">Маршрут</a>
+<a class="btn call" id="call" href="tel:+992011900303">Позвонить 📞</a>
 
-<a class="btn info" href="info.html">⭐ Обо мне</a>
+<a class="btn sms" id="sms" href="sms:+992011900303">SMS ✉️</a>
+
+<a class="btn route" id="route"
+href="https://www.google.com/maps?q=Dushanbe"
+target="_blank">Маршрут 📍</a>
+
+<div class="card">
+<h3 id="servicesTitle">Услуги</h3>
+<p id="services">
+Мини сайт — 100 сомон<br>
+Стандартный — 300 сомон<br>
+Большой сайт — 500 сомон
+</p>
+</div>
 
 </div>
 
 <script>
-function ru(){
-document.getElementById("text1").innerText="Создание сайтов • Website Creation";
+function setLang(lang){
+if(lang === "ru"){
+document.getElementById("title").innerText = "👑 MUBORIZ WEB STUDIO 👑";
+document.getElementById("subtitle").innerText = "Создание сайтов • Website Creation";
+document.getElementById("name").innerText = "Имя: Мубориз";
+document.getElementById("servicesTitle").innerText = "Услуги";
+document.getElementById("services").innerHTML =
+"Мини сайт — 100 сомон<br>Стандартный — 300 сомон<br>Большой сайт — 500 сомон";
+
+document.getElementById("call").innerText = "Позвонить 📞";
+document.getElementById("sms").innerText = "SMS ✉️";
+document.getElementById("route").innerText = "Маршрут 📍";
+document.getElementById("wa").innerText = "WhatsApp 💬";
 }
-function en(){
-document.getElementById("text1").innerText="Website Development • Web Studio";
+
+if(lang === "tj"){
+document.getElementById("title").innerText = "👑 MUBORIZ WEB STUDIO 👑";
+document.getElementById("subtitle").innerText = "Сохтани сомонаҳо • Website Creation";
+document.getElementById("name").innerText = "Ном: Мубориз";
+document.getElementById("servicesTitle").innerText = "Хизматҳо";
+document.getElementById("services").innerHTML =
+"Сомонаи хурд — 100 сомон<br>Миёна — 300 сомон<br>Калон — 500 сомон";
+
+document.getElementById("call").innerText = "Занг 📞";
+document.getElementById("sms").innerText = "SMS ✉️";
+document.getElementById("route").innerText = "Нақша 📍";
+document.getElementById("wa").innerText = "WhatsApp 💬";
+}
 }
 </script>
 
