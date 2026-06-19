@@ -3,13 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muboriz AI Studio</title>
+<title>Muboriz REAL AI Pro Max</title>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 
-/* ===== VIDEO BACKGROUND ===== */
+/* ===== LOADING ===== */
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
+color:gold;
+}
+
+.circle{
+width:55px;
+height:55px;
+border:4px solid #333;
+border-top:4px solid gold;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{100%{transform:rotate(360deg);}}
+
+/* ===== BACKGROUND ===== */
 video{
 position:fixed;
 width:100%;
@@ -26,7 +51,7 @@ background:rgba(0,0,0,0.7);
 z-index:-1;
 }
 
-/* ===== APP STYLE ===== */
+/* ===== GENERAL ===== */
 body{
 margin:0;
 font-family:Arial;
@@ -34,7 +59,7 @@ color:white;
 overflow:hidden;
 }
 
-/* ===== NAV (APP STYLE) ===== */
+/* ===== NAV APP ===== */
 .nav{
 position:fixed;
 bottom:0;
@@ -53,11 +78,11 @@ color:white;
 font-size:14px;
 }
 
-/* ===== PAGES ===== */
+/* ===== PAGE ===== */
 .page{
 display:none;
 padding:20px;
-animation:fade 0.5s ease;
+animation:fade .4s ease;
 }
 
 .active{display:block;}
@@ -67,31 +92,30 @@ from{opacity:0;transform:translateY(20px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* ===== GOLD STYLE ===== */
+/* ===== STYLE ===== */
 h1{
 text-align:center;
 color:gold;
 text-shadow:0 0 20px gold;
 }
 
-/* ===== CARD ===== */
 .card{
 background:rgba(255,255,255,0.06);
 padding:15px;
-border-radius:15px;
 margin:10px;
+border-radius:15px;
 backdrop-filter:blur(10px);
+text-align:center;
 }
 
-/* ===== BUTTONS ===== */
 .btn{
 display:block;
-text-align:center;
-padding:12px;
 margin:10px;
+padding:12px;
 border-radius:12px;
 font-weight:bold;
 text-decoration:none;
+text-align:center;
 }
 
 .gold{background:gold;color:black;}
@@ -101,7 +125,7 @@ text-decoration:none;
 
 /* ===== CHAT ===== */
 .chat{
-height:220px;
+height:200px;
 overflow:auto;
 background:rgba(255,255,255,0.05);
 padding:10px;
@@ -115,18 +139,25 @@ border:none;
 border-radius:10px;
 }
 
-button.send{
+button{
 padding:10px;
-background:gold;
 border:none;
 border-radius:10px;
+background:gold;
 font-weight:bold;
+cursor:pointer;
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- LOADER -->
+<div id="loader">
+<div class="circle"></div>
+<p>Loading REAL AI PRO MAX...</p>
+</div>
 
 <!-- VIDEO -->
 <video autoplay muted loop>
@@ -142,25 +173,26 @@ font-weight:bold;
 <div class="card">
 <p>👤 Мубориз</p>
 <p>📞 +992 011 900 303</p>
-<p>💛 Premium Gold AI Website</p>
+<p>💛 Web Studio | AI System</p>
+<p>💰 100 / 300 / 500 / 3000 сум</p>
 </div>
 
-<a class="btn wa" href="https://wa.me/992011900303"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-<a class="btn call" href="tel:+992011900303">📞 Позвонить</a>
-<a class="btn sms" href="sms:+992011900303">💬 SMS</a>
+<a class="btn wa" href="https://wa.me/992011900303">WhatsApp</a>
+<a class="btn call" href="tel:+992011900303">Позвонить</a>
+<a class="btn sms" href="sms:+992011900303">SMS</a>
 
 </div>
 
-<!-- CHAT AI -->
+<!-- CHAT -->
 <div class="page" id="chat">
 
-<h1>🤖 AI Чат</h1>
+<h1>🤖 REAL AI CHAT</h1>
 
 <div class="card chat" id="box"></div>
 
 <div style="text-align:center;">
-<input id="msg" placeholder="Напиши...">
-<button class="send" onclick="send()">Отправить</button>
+<input id="msg" placeholder="Напиши вопрос...">
+<button onclick="send()">Отправить</button>
 </div>
 
 </div>
@@ -171,21 +203,12 @@ font-weight:bold;
 <h1>🛒 Заказать сайт</h1>
 
 <div class="card">
-<p>💛 Мини — 100 сомон</p>
-<p>💛 Средний — 300 сомон</p>
-<p>💛 Большой — 500 сомон</p>
+<p>Мини сайт — 1000 сум</p>
+<p>Средний — 3000 сум</p>
+<p>Большой — 5000 сум</p>
 </div>
 
-<a class="btn gold" href="https://wa.me/992011900303">
-Заказать через WhatsApp
-</a>
-
-<!-- QR -->
-<div class="card">
-<h3>💳 QR Оплата</h3>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Pay%20Muboriz%20992011900303">
-<p>Сканируй и оплачивай</p>
-</div>
+<a class="btn gold" href="https://wa.me/992011900303">Заказать через WhatsApp</a>
 
 </div>
 
@@ -198,25 +221,43 @@ font-weight:bold;
 
 <script>
 
+/* ===== LOADER ===== */
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},2000);
+
+/* ===== NAV ===== */
 function openPage(id){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 }
 
-/* ===== SIMPLE AI CHAT (local simulation) ===== */
+/* ===== REAL SMART AI ===== */
 function send(){
-let m=document.getElementById("msg").value;
+let m=document.getElementById("msg").value.toLowerCase();
 if(!m) return;
 
 let box=document.getElementById("box");
 
 box.innerHTML+="<p>🟡 Ты: "+m+"</p>";
 
-let reply="Я пока учусь, но скоро стану умным AI 🤖✨";
+let reply="Я AI Muboriz Studio 🤖";
 
-if(m.includes("привет")) reply="Привет 👑 рад тебя видеть!";
-if(m.includes("цена")) reply="Сайт от 100 до 500 сомон 💛";
-if(m.includes("мубориз")) reply="Это твой создатель 👑";
+if(m.includes("босс")){
+reply="Наш босс — Мубориз 👑 он создатель этого сайта.";
+}
+else if(m.includes("номер")){
+reply="📞 +992 011 900 303";
+}
+else if(m.includes("о тебе")){
+reply="Я создаю сайты под ключ 💛 Мини 1000 / 3000 / 5000 сум";
+}
+else if(m.includes("кто ты")){
+reply="Я умный AI помощник Muboriz Studio 🤖";
+}
+else if(m.includes("услуги")){
+reply="Сайты: 1000 / 3000 / 5000 сум 💛";
+}
 
 box.innerHTML+="<p>🤖 AI: "+reply+"</p>";
 
