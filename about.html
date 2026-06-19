@@ -3,17 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мубориз Web Studio</title>
+<title>О нас | Мубориз Web Studio</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
+margin:0;
+font-family:Arial,sans-serif;
 background:#000;
 color:white;
 text-align:center;
@@ -21,65 +16,52 @@ text-align:center;
 
 .hero{
 padding:60px 20px;
-background:linear-gradient(135deg,#000,#3d2a00,#000);
+background:linear-gradient(135deg,#000,#3a2500);
 }
 
-.hero h1{
-font-size:60px;
+h1{
+font-size:55px;
 color:gold;
+margin-bottom:10px;
 }
 
-.hero h2{
-font-size:28px;
-margin-top:10px;
+h2{
+color:white;
+font-size:30px;
 }
 
-.lang{
-margin:20px;
-}
-
-.lang button{
-background:gold;
-border:none;
-padding:12px 25px;
-margin:5px;
-border-radius:15px;
-font-size:18px;
-font-weight:bold;
-}
-
-.card{
-width:90%;
-max-width:800px;
-margin:20px auto;
+.box{
+max-width:900px;
+margin:30px auto;
 padding:30px;
 background:#111;
-border:2px solid gold;
+border:3px solid gold;
 border-radius:25px;
 }
 
-.card h2{
-color:gold;
-font-size:35px;
-margin-bottom:20px;
-}
-
-.card p{
-font-size:22px;
-line-height:1.8;
+.lang-btn{
+background:gold;
+color:black;
+border:none;
+padding:12px 25px;
+margin:10px;
+font-size:18px;
+font-weight:bold;
+border-radius:15px;
+cursor:pointer;
 }
 
 .btn{
 display:block;
-width:90%;
+width:80%;
 max-width:500px;
-margin:15px auto;
+margin:20px auto;
 padding:20px;
-font-size:24px;
 text-decoration:none;
-border-radius:15px;
-color:white;
+font-size:24px;
 font-weight:bold;
+border-radius:20px;
+color:white;
 }
 
 .whatsapp{
@@ -87,75 +69,73 @@ background:#25D366;
 }
 
 .call{
-background:#ff6b00;
+background:#ff5722;
 }
 
-.home{
+.back{
 background:gold;
 color:black;
 }
 
-footer{
-padding:30px;
-color:#aaa;
+p{
+font-size:22px;
+line-height:1.6;
 }
 </style>
-
-<script>
-function ru(){
-document.getElementById("title").innerHTML="Покупайте у нас самые красивые сайты";
-document.getElementById("text").innerHTML="Создаём современные сайты для бизнеса, магазинов, услуг и личных проектов. Быстро, красиво и недорого.";
-}
-
-function tj(){
-document.getElementById("title").innerHTML="Аз мо сайтҳои зеботаринро фармоиш диҳед";
-document.getElementById("text").innerHTML="Барои бизнес, мағоза, хизматрасонӣ ва лоиҳаҳои шахсӣ сайтҳои замонавӣ месозем.";
-}
-</script>
-
 </head>
+
 <body>
 
 <div class="hero">
 <h1>👑 МУБОРИЗ</h1>
 <h2>WEB STUDIO</h2>
-<p>Душанбе, Тоҷикистон</p>
 </div>
 
-<div class="lang">
-<button onclick="ru()">🇷🇺 Русский</button>
-<button onclick="tj()">🇹🇯 Тоҷикӣ</button>
+<div style="margin-top:20px;">
+<button class="lang-btn" onclick="ru()">🇷🇺 Русский</button>
+<button class="lang-btn" onclick="tj()">🇹🇯 Тоҷикӣ</button>
 </div>
 
-<div class="card">
-
-<h2 id="title">Покупайте у нас самые красивые сайты</h2>
+<div class="box">
+<h2 id="title">Почему выбирают нас?</h2>
 
 <p id="text">
-Создаём современные сайты для бизнеса, магазинов, услуг и личных проектов. Быстро, красиво и недорого.
+Мы создаём красивые современные сайты под ключ.
+Быстро, качественно и по доступной цене.
+Сайт поможет вам находить новых клиентов и развивать бизнес.
 </p>
 
-<br>
-
-<h2>📞 +992 011 900 303</h2>
+<p id="phone">
+📞 Телефон: +992 011 900 303
+</p>
 
 <a class="btn whatsapp" href="https://wa.me/992011900303">
-💬 WhatsApp
+WhatsApp
 </a>
 
 <a class="btn call" href="tel:+992011900303">
-📞 Позвонить
+Позвонить
 </a>
 
-<a class="btn home" href="index.html">
-🏠 Главная страница
+<a class="btn back" href="index.html">
+⬅ Вернуться на главную
 </a>
 
 </div>
 
-<footer>
-© Мубориз Web Studio
-</footer>
+<script>
+function ru(){
+document.getElementById("title").innerHTML="Почему выбирают нас?";
+document.getElementById("text").innerHTML=
+"Мы создаём красивые современные сайты под ключ. Быстро, качественно и по доступной цене. Сайт поможет вам находить новых клиентов и развивать бизнес.";
+}
+
+function tj(){
+document.getElementById("title").innerHTML="Чаро моро интихоб мекунанд?";
+document.getElementById("text").innerHTML=
+"Мо сайтҳои зебо ва замонавиро месозем. Тез, босифат ва бо нархи дастрас. Сайт барои пайдо кардани мизоҷони нав ва рушди кори шумо кӯмак мекунад.";
+}
+</script>
 
 </body>
 </html>
