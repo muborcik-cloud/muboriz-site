@@ -1,112 +1,131 @@
-<!-- 🔊 Озвучивание ответов AI -->
-<script>
-function speak(text){
-const speech = new SpeechSynthesisUtterance(text);
-speech.lang = "ru-RU";
-speech.rate = 1;
-speech.pitch = 1;
-speech.volume = 1;
-speechSynthesis.speak(speech);
-}
-</script>
+<!-- 👑 ГЛАВНАЯ СТРАНИЦА -->
+<section class="card">
+<h2>👑 MUBORIZ STUDIO</h2>
+<p>Создание сайтов под ключ в Душанбе</p>
+<a class="btn whatsapp" href="https://wa.me/992011900303">
+Заказать сайт
+</a>
+</section>
 
-<!-- 🤖 Улучшенные ответы -->
-<script>
-function aiReply(text){
+<!-- 💼 МОИ УСЛУГИ -->
+<section class="card">
+<h2>💼 Мои услуги</h2>
 
-text=text.toLowerCase();
+<p>📱 Мини-сайт — 100 сомони</p>
+<p>💻 Средний сайт — 300 сомони</p>
+<p>🚀 Большой сайт — 500 сомони</p>
 
-if(text.includes("босс"))
-return "Наш босс — Мубориз. Он создаёт современные сайты под ключ.";
+</section>
 
-if(text.includes("номер"))
-return "Номер телефона: плюс девятьсот девяносто два, ноль одиннадцать, девятьсот, триста три.";
+<!-- 🖼️ ПОРТФОЛИО -->
+<section class="card">
+<h2>🖼️ Портфолио</h2>
 
-if(text.includes("услуги"))
-return "Маленький сайт — 100 сомони. Средний сайт — 300 сомони. Большой сайт — 500 сомони.";
+<div style="display:flex;gap:10px;flex-wrap:wrap">
 
-if(text.includes("о тебе") || text.includes("о мубориз"))
-return "Мубориз создаёт сайты под ключ для клиентов в Душанбе.";
+<img src="https://picsum.photos/250/150?1"
+style="width:30%;border-radius:12px;">
 
-if(text.includes("whatsapp"))
-return "Напишите в WhatsApp по номеру плюс девятьсот девяносто два, ноль одиннадцать, девятьсот, триста три.";
+<img src="https://picsum.photos/250/150?2"
+style="width:30%;border-radius:12px;">
 
-return "Здравствуйте. Чем могу помочь?";
-}
-</script>
+<img src="https://picsum.photos/250/150?3"
+style="width:30%;border-radius:12px;">
 
-<!-- 🟨 3D Золотой Куб -->
-<style>
-.cube3d{
-width:140px;
-height:140px;
-margin:30px auto;
-background:linear-gradient(45deg,gold,#00ff88);
-border-radius:25px;
-box-shadow:0 0 40px gold;
-animation:cubeSpin 8s linear infinite;
-}
-
-@keyframes cubeSpin{
-0%{
-transform:rotateX(0deg) rotateY(0deg);
-}
-100%{
-transform:rotateX(360deg) rotateY(360deg);
-}
-}
-</style>
-
-<div class="cube3d"></div>
-
-<!-- 🗺️ Карта Душанбе -->
-<div class="card">
-<h2>📍 Душанбе</h2>
-
-<iframe
-src="https://maps.google.com/maps?q=Dushanbe&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%"
-height="250"
-style="border:0;border-radius:15px;">
-</iframe>
 </div>
 
-<!-- ⭐ Отзывы -->
-<div class="card">
-<h2>⭐ Отзывы</h2>
+</section>
 
-<p>⭐⭐⭐⭐⭐ Очень красивый сайт! — Али</p>
+<!-- ⭐ ОТЗЫВЫ -->
+<section class="card">
+
+<h2>⭐ Отзывы клиентов</h2>
+
+<p>⭐⭐⭐⭐⭐ Очень хороший сайт!</p>
+<p>— Али</p>
+
 <br>
-<p>⭐⭐⭐⭐⭐ Быстро и качественно! — Фаррух</p>
+
+<p>⭐⭐⭐⭐⭐ Быстро и красиво.</p>
+<p>— Фаррух</p>
+
 <br>
-<p>⭐⭐⭐⭐⭐ Отличная работа! — Рустам</p>
-</div>
 
-<!-- 💬 Быстрые вопросы -->
-<div class="card">
-<h2>⚡ Быстрые вопросы</h2>
+<p>⭐⭐⭐⭐⭐ Всё понравилось.</p>
+<p>— Рустам</p>
 
-<button onclick="quick('Кто босс?')">Кто босс?</button>
+</section>
 
-<button onclick="quick('Номер')">Номер</button>
+<!-- 🤖 MUBORIZ AI -->
+<section class="card">
 
-<button onclick="quick('Услуги')">Услуги</button>
+<h2>🤖 Muboriz AI</h2>
 
-<button onclick="quick('О Мубориз')">О Мубориз</button>
+<p>
+Спросите про цены,
+услуги,
+контакты
+или информацию о Муборизе.
+</p>
 
-</div>
+</section>
 
-<script>
-function quick(text){
+<!-- 📞 СВЯЗЬ -->
+<section class="card">
 
-document.getElementById("msg").value=text;
+<h2>📞 Связь</h2>
 
-send();
+<a class="btn whatsapp"
+href="https://wa.me/992011900303">
 
-}
-</script>
+💬 WhatsApp
 
-<!-- 🔊 ВСТАВЬ В СВОЮ ФУНКЦИЮ send() -->
-<!-- После строки с ответом AI добавь: -->
+</a>
 
-<!-- speak(answer); -->
+<a class="btn call"
+href="tel:+992011900303">
+
+☎️ Позвонить
+
+</a>
+
+<a class="btn sms"
+href="sms:+992011900303">
+
+📱 SMS
+
+</a>
+
+</section>
+
+<!-- 🎨 ЭФФЕКТЫ -->
+<section class="card">
+
+<h2>🎨 Эффекты</h2>
+
+<p>✨ Золотой стиль</p>
+<p>💚 Зелёная подсветка</p>
+<p>🟨 3D куб</p>
+<p>🌌 Космический фон</p>
+<p>⚡ Анимации</p>
+
+</section>
+
+<!-- 🏆 ПОЧЕМУ ВЫБИРАЮТ МЕНЯ -->
+<section class="card">
+
+<h2>🏆 Почему выбирают меня?</h2>
+
+<p>⚡ Быстрое создание сайта</p>
+
+<p>💰 Доступные цены</p>
+
+<p>📱 Удобно для телефона</p>
+
+<p>💻 Работает на компьютере</p>
+
+<p>🤝 Поддержка клиентов</p>
+
+<p>🎨 Красивый современный дизайн</p>
+
+</section>
