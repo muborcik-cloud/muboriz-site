@@ -1,131 +1,194 @@
-<!-- 👑 ГЛАВНАЯ СТРАНИЦА -->
-<section class="card">
-<h2>👑 MUBORIZ STUDIO</h2>
-<p>Создание сайтов под ключ в Душанбе</p>
-<a class="btn whatsapp" href="https://wa.me/992011900303">
-Заказать сайт
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мубориз</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#000,#111,#222);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.hero{
+padding:60px 20px;
+}
+
+h1{
+font-size:50px;
+background:linear-gradient(90deg,gold,#fff7a0,gold);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 20px gold;
+}
+
+.subtitle{
+font-size:20px;
+margin-top:10px;
+color:#ddd;
+}
+
+.card{
+max-width:900px;
+margin:30px auto;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:25px;
+box-shadow:0 0 25px gold;
+}
+
+.btn{
+display:block;
+margin:15px auto;
+padding:15px;
+width:85%;
+max-width:400px;
+border:none;
+border-radius:15px;
+background:linear-gradient(45deg,gold,#ffd700);
+color:black;
+font-weight:bold;
+font-size:18px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.chat{
+margin-top:20px;
+}
+
+input{
+width:80%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-top:10px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:gold;
+font-weight:bold;
+margin-top:10px;
+}
+
+.answer{
+margin-top:15px;
+font-size:18px;
+color:#fff7a0;
+}
+
+iframe{
+width:100%;
+height:350px;
+border:none;
+border-radius:20px;
+margin-top:20px;
+}
+
+.cube{
+width:120px;
+height:120px;
+margin:30px auto;
+background:linear-gradient(45deg,gold,#fff);
+transform:rotateX(45deg) rotateY(45deg);
+box-shadow:0 0 40px gold;
+animation:spin 6s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotateX(405deg) rotateY(405deg);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<h1>МУБОРИЗ</h1>
+<p class="subtitle">Добро пожаловать на мой сайт</p>
+
+<div class="cube"></div>
+</div>
+
+<div class="card">
+
+<h2>Мои контакты</h2>
+
+<a class="btn" href="tel:+992011900303">📞 Позвонить</a>
+
+<a class="btn" href="sms:+992011900303">💬 Сообщение</a>
+
+<a class="btn" href="https://wa.me/992011900303">🟢 WhatsApp</a>
+
+<a class="btn" href="https://maps.google.com/?q=40.2833,69.6333">
+🗺 Построить маршрут
 </a>
-</section>
 
-<!-- 💼 МОИ УСЛУГИ -->
-<section class="card">
-<h2>💼 Мои услуги</h2>
+<iframe
+src="https://maps.google.com/maps?q=40.2833,69.6333&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
 
-<p>📱 Мини-сайт — 100 сомони</p>
-<p>💻 Средний сайт — 300 сомони</p>
-<p>🚀 Большой сайт — 500 сомони</p>
+<div class="chat">
+<h2>Умный чат</h2>
 
-</section>
+<input id="q" placeholder="Задай вопрос">
 
-<!-- 🖼️ ПОРТФОЛИО -->
-<section class="card">
-<h2>🖼️ Портфолио</h2>
+<br>
 
-<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button onclick="askBot()">Спросить</button>
 
-<img src="https://picsum.photos/250/150?1"
-style="width:30%;border-radius:12px;">
-
-<img src="https://picsum.photos/250/150?2"
-style="width:30%;border-radius:12px;">
-
-<img src="https://picsum.photos/250/150?3"
-style="width:30%;border-radius:12px;">
+<div id="a" class="answer"></div>
 
 </div>
 
-</section>
+</div>
 
-<!-- ⭐ ОТЗЫВЫ -->
-<section class="card">
+<script>
+function askBot(){
 
-<h2>⭐ Отзывы клиентов</h2>
+let q=document.getElementById("q").value.toLowerCase();
+let a="";
 
-<p>⭐⭐⭐⭐⭐ Очень хороший сайт!</p>
-<p>— Али</p>
+if(q.includes("босс")){
+a="Наш босс — Мубориз";
+}
+else if(q.includes("номер")){
+a="Номер: +992 011 900 303";
+}
+else if(q.includes("имя")){
+a="Меня зовут Мубориз";
+}
+else if(q.includes("whatsapp")){
+a="WhatsApp: +992 011 900 303";
+}
+else{
+a="Я пока не знаю ответ на этот вопрос.";
+}
 
-<br>
+document.getElementById("a").innerText=a;
 
-<p>⭐⭐⭐⭐⭐ Быстро и красиво.</p>
-<p>— Фаррух</p>
+}
+</script>
 
-<br>
-
-<p>⭐⭐⭐⭐⭐ Всё понравилось.</p>
-<p>— Рустам</p>
-
-</section>
-
-<!-- 🤖 MUBORIZ AI -->
-<section class="card">
-
-<h2>🤖 Muboriz AI</h2>
-
-<p>
-Спросите про цены,
-услуги,
-контакты
-или информацию о Муборизе.
-</p>
-
-</section>
-
-<!-- 📞 СВЯЗЬ -->
-<section class="card">
-
-<h2>📞 Связь</h2>
-
-<a class="btn whatsapp"
-href="https://wa.me/992011900303">
-
-💬 WhatsApp
-
-</a>
-
-<a class="btn call"
-href="tel:+992011900303">
-
-☎️ Позвонить
-
-</a>
-
-<a class="btn sms"
-href="sms:+992011900303">
-
-📱 SMS
-
-</a>
-
-</section>
-
-<!-- 🎨 ЭФФЕКТЫ -->
-<section class="card">
-
-<h2>🎨 Эффекты</h2>
-
-<p>✨ Золотой стиль</p>
-<p>💚 Зелёная подсветка</p>
-<p>🟨 3D куб</p>
-<p>🌌 Космический фон</p>
-<p>⚡ Анимации</p>
-
-</section>
-
-<!-- 🏆 ПОЧЕМУ ВЫБИРАЮТ МЕНЯ -->
-<section class="card">
-
-<h2>🏆 Почему выбирают меня?</h2>
-
-<p>⚡ Быстрое создание сайта</p>
-
-<p>💰 Доступные цены</p>
-
-<p>📱 Удобно для телефона</p>
-
-<p>💻 Работает на компьютере</p>
-
-<p>🤝 Поддержка клиентов</p>
-
-<p>🎨 Красивый современный дизайн</p>
-
-</section>
+</body>
+</html>
