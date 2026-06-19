@@ -1,194 +1,179 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мубориз</title>
+<section id="order">
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:linear-gradient(135deg,#000,#111,#222);
-color:white;
-text-align:center;
-overflow-x:hidden;
-}
-
-.hero{
-padding:60px 20px;
-}
-
-h1{
-font-size:50px;
-background:linear-gradient(90deg,gold,#fff7a0,gold);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-text-shadow:0 0 20px gold;
-}
-
-.subtitle{
-font-size:20px;
-margin-top:10px;
-color:#ddd;
-}
-
-.card{
-max-width:900px;
-margin:30px auto;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:25px;
-box-shadow:0 0 25px gold;
-}
-
-.btn{
-display:block;
-margin:15px auto;
-padding:15px;
-width:85%;
-max-width:400px;
-border:none;
-border-radius:15px;
-background:linear-gradient(45deg,gold,#ffd700);
-color:black;
-font-weight:bold;
-font-size:18px;
-text-decoration:none;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-.chat{
-margin-top:20px;
-}
-
-input{
-width:80%;
-padding:12px;
-border-radius:10px;
-border:none;
-margin-top:10px;
-}
-
-button{
-padding:12px 20px;
-border:none;
-border-radius:10px;
-background:gold;
-font-weight:bold;
-margin-top:10px;
-}
-
-.answer{
-margin-top:15px;
-font-size:18px;
-color:#fff7a0;
-}
-
-iframe{
-width:100%;
-height:350px;
-border:none;
-border-radius:20px;
-margin-top:20px;
-}
-
-.cube{
-width:120px;
-height:120px;
-margin:30px auto;
-background:linear-gradient(45deg,gold,#fff);
-transform:rotateX(45deg) rotateY(45deg);
-box-shadow:0 0 40px gold;
-animation:spin 6s linear infinite;
-}
-
-@keyframes spin{
-100%{
-transform:rotateX(405deg) rotateY(405deg);
-}
-}
-</style>
-</head>
-
-<body>
-
-<div class="hero">
-<h1>МУБОРИЗ</h1>
-<p class="subtitle">Добро пожаловать на мой сайт</p>
-
-<div class="cube"></div>
-</div>
+<h2 class="title">Отправить заявку</h2>
 
 <div class="card">
 
-<h2>Мои контакты</h2>
+<form>
 
-<a class="btn" href="tel:+992011900303">📞 Позвонить</a>
+<input type="text"
+placeholder="Ваше имя"
+style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:none;">
 
-<a class="btn" href="sms:+992011900303">💬 Сообщение</a>
+<input type="tel"
+placeholder="Ваш номер"
+style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:none;">
 
-<a class="btn" href="https://wa.me/992011900303">🟢 WhatsApp</a>
+<textarea
+placeholder="Напишите сообщение"
+style="width:100%;height:150px;padding:15px;border-radius:10px;border:none;">
+</textarea>
 
-<a class="btn" href="https://maps.google.com/?q=40.2833,69.6333">
-🗺 Построить маршрут
-</a>
+<br><br>
 
-<iframe
-src="https://maps.google.com/maps?q=40.2833,69.6333&t=&z=13&ie=UTF8&iwloc=&output=embed">
-</iframe>
+<button
+style="padding:15px 30px;background:gold;border:none;border-radius:10px;font-weight:bold;">
+Отправить заявку
+</button>
 
-<div class="chat">
-<h2>Умный чат</h2>
+</form>
 
-<input id="q" placeholder="Задай вопрос">
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Чат-Бот MUBORIZ AI</h2>
+
+<div class="chat-box">
+
+<p>
+Задайте вопрос:
+</p>
+
+<input
+id="question"
+placeholder="Например: кто ваш босс?">
+
+<button onclick="askBot()">
+Отправить
+</button>
+
+<button onclick="startVoice()">
+🎤 Микрофон
+</button>
+
+<div id="answer"></div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Дополнительная информация</h2>
+
+<div class="card">
+
+<h3>MUBORIZ</h3>
 
 <br>
 
-<button onclick="askBot()">Спросить</button>
+<p>
+Я создаю современные сайты для клиентов.
+Работаю быстро и стараюсь делать красивые проекты.
+</p>
 
-<div id="a" class="answer"></div>
+<br>
+
+<p>
+Телефон:
++992 011 900 303
+</p>
+
+<br>
+
+<p>
+WhatsApp:
++992 011 900 303
+</p>
 
 </div>
 
-</div>
+</section>
 
 <script>
+
+function speak(text){
+
+let speech =
+new SpeechSynthesisUtterance(text);
+
+speech.lang = "ru-RU";
+
+window.speechSynthesis.speak(speech);
+
+}
+
 function askBot(){
 
-let q=document.getElementById("q").value.toLowerCase();
-let a="";
+let q =
+document
+.getElementById("question")
+.value
+.toLowerCase();
 
-if(q.includes("босс")){
-a="Наш босс — Мубориз";
-}
-else if(q.includes("номер")){
-a="Номер: +992 011 900 303";
-}
-else if(q.includes("имя")){
-a="Меня зовут Мубориз";
-}
-else if(q.includes("whatsapp")){
-a="WhatsApp: +992 011 900 303";
-}
-else{
-a="Я пока не знаю ответ на этот вопрос.";
+let answer =
+"Я не понял вопрос.";
+
+if(q.includes("босс"))
+answer =
+"Наш босс Мубориз.";
+
+else if(q.includes("номер"))
+answer =
+"Номер Мубориза плюс девятьсот девяносто два ноль одиннадцать девятьсот триста три.";
+
+else if(q.includes("цена"))
+answer =
+"Маленький сайт двести сомони, средний триста, большой пятьсот.";
+
+else if(q.includes("услуги"))
+answer =
+"Создание сайтов под ключ.";
+
+document
+.getElementById("answer")
+.innerHTML = answer;
+
+speak(answer);
+
 }
 
-document.getElementById("a").innerText=a;
+function startVoice(){
+
+const recognition =
+new webkitSpeechRecognition();
+
+recognition.lang =
+"ru-RU";
+
+recognition.start();
+
+recognition.onresult =
+function(event){
+
+let text =
+event.results[0][0].transcript;
+
+document
+.getElementById("question")
+.value = text;
+
+askBot();
+
+};
 
 }
+
 </script>
+
+<footer>
+
+© 2026 MUBORIZ
+
+</footer>
 
 </body>
 </html>
