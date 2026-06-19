@@ -1,76 +1,126 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Muboriz Web Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muboriz AI Studio</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
+
+/* ===== VIDEO BACKGROUND ===== */
+video{
+position:fixed;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+z-index:-1;
+}
+
+/* ===== APP STYLE ===== */
 body{
 margin:0;
-font-family: Arial, sans-serif;
-background: radial-gradient(circle at top, #1b1b1b, #0a0a0a);
+font-family:Arial;
 color:white;
-text-align:center;
+overflow:hidden;
 }
 
-.container{
-padding:20px;
+/* ===== NAV (APP STYLE) ===== */
+.nav{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:rgba(0,0,0,0.8);
+padding:10px;
+backdrop-filter:blur(10px);
 }
 
-h1{
-font-size:28px;
-margin-top:20px;
-color: gold;
-}
-
-.subtitle{
-color:#bbb;
-margin-bottom:20px;
-}
-
-.lang-buttons button{
-margin:5px;
-padding:10px 15px;
-border-radius:20px;
+.nav button{
+background:none;
 border:none;
-cursor:pointer;
-font-weight:bold;
+color:white;
+font-size:14px;
 }
 
-.gold-btn{
-background:gold;
-color:black;
+/* ===== PAGES ===== */
+.page{
+display:none;
+padding:20px;
+animation:fade 0.5s ease;
 }
 
+.active{display:block;}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* ===== GOLD STYLE ===== */
+h1{
+text-align:center;
+color:gold;
+text-shadow:0 0 20px gold;
+}
+
+/* ===== CARD ===== */
+.card{
+background:rgba(255,255,255,0.06);
+padding:15px;
+border-radius:15px;
+margin:10px;
+backdrop-filter:blur(10px);
+}
+
+/* ===== BUTTONS ===== */
 .btn{
 display:block;
-width:80%;
-margin:10px auto;
-padding:15px;
-border-radius:15px;
-font-size:18px;
-text-decoration:none;
+text-align:center;
+padding:12px;
+margin:10px;
+border-radius:12px;
 font-weight:bold;
-transition:0.3s;
+text-decoration:none;
 }
 
-.whatsapp{background:#25D366;color:white;}
-.call{background:#1e90ff;color:white;}
-.sms{background:#ff9800;color:white;}
-.route{background:#f1c40f;color:black;}
+.gold{background:gold;color:black;}
+.wa{background:#25D366;}
+.call{background:#1e90ff;}
+.sms{background:#ff9800;}
 
-.btn:hover{
-transform:scale(1.05);
-opacity:0.9;
+/* ===== CHAT ===== */
+.chat{
+height:220px;
+overflow:auto;
+background:rgba(255,255,255,0.05);
+padding:10px;
+border-radius:10px;
 }
 
-.card{
-background:#111;
-padding:15px;
-margin-top:20px;
-border-radius:15px;
-box-shadow:0 0 10px rgba(255,215,0,0.3);
+input{
+width:70%;
+padding:10px;
+border:none;
+border-radius:10px;
+}
+
+button.send{
+padding:10px;
+background:gold;
+border:none;
+border-radius:10px;
+font-weight:bold;
 }
 
 </style>
@@ -78,73 +128,101 @@ box-shadow:0 0 10px rgba(255,215,0,0.3);
 
 <body>
 
-<div class="container">
+<!-- VIDEO -->
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-city-night-traffic-1578/1080p.mp4">
+</video>
+<div class="overlay"></div>
 
-<h1 id="title">👑 MUBORIZ WEB STUDIO 👑</h1>
-<p class="subtitle" id="subtitle">Создание сайтов • Website Creation</p>
+<!-- HOME -->
+<div class="page active" id="home">
 
-<div class="lang-buttons">
-<button class="gold-btn" onclick="setLang('ru')">Русский 🇷🇺</button>
-<button class="gold-btn" onclick="setLang('tj')">Тоҷикӣ 🇹🇯</button>
-</div>
+<h1>👑 MUBORIZ AI STUDIO 👑</h1>
 
 <div class="card">
-<p id="name">Имя: Мубориз</p>
+<p>👤 Мубориз</p>
 <p>📞 +992 011 900 303</p>
+<p>💛 Premium Gold AI Website</p>
 </div>
 
-<!-- BUTTONS -->
-<a class="btn whatsapp" id="wa" href="https://wa.me/992011900303" target="_blank">WhatsApp 💬</a>
+<a class="btn wa" href="https://wa.me/992011900303"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+<a class="btn call" href="tel:+992011900303">📞 Позвонить</a>
+<a class="btn sms" href="sms:+992011900303">💬 SMS</a>
 
-<a class="btn call" id="call" href="tel:+992011900303">Позвонить 📞</a>
+</div>
 
-<a class="btn sms" id="sms" href="sms:+992011900303">SMS ✉️</a>
+<!-- CHAT AI -->
+<div class="page" id="chat">
 
-<a class="btn route" id="route"
-href="https://www.google.com/maps?q=Dushanbe"
-target="_blank">Маршрут 📍</a>
+<h1>🤖 AI Чат</h1>
+
+<div class="card chat" id="box"></div>
+
+<div style="text-align:center;">
+<input id="msg" placeholder="Напиши...">
+<button class="send" onclick="send()">Отправить</button>
+</div>
+
+</div>
+
+<!-- ORDER -->
+<div class="page" id="order">
+
+<h1>🛒 Заказать сайт</h1>
 
 <div class="card">
-<h3 id="servicesTitle">Услуги</h3>
-<p id="services">
-Мини сайт — 100 сомон<br>
-Стандартный — 300 сомон<br>
-Большой сайт — 500 сомон
-</p>
+<p>💛 Мини — 100 сомон</p>
+<p>💛 Средний — 300 сомон</p>
+<p>💛 Большой — 500 сомон</p>
 </div>
 
+<a class="btn gold" href="https://wa.me/992011900303">
+Заказать через WhatsApp
+</a>
+
+<!-- QR -->
+<div class="card">
+<h3>💳 QR Оплата</h3>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Pay%20Muboriz%20992011900303">
+<p>Сканируй и оплачивай</p>
+</div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav">
+<button onclick="openPage('home')">🏠</button>
+<button onclick="openPage('chat')">🤖</button>
+<button onclick="openPage('order')">🛒</button>
 </div>
 
 <script>
-function setLang(lang){
-if(lang === "ru"){
-document.getElementById("title").innerText = "👑 MUBORIZ WEB STUDIO 👑";
-document.getElementById("subtitle").innerText = "Создание сайтов • Website Creation";
-document.getElementById("name").innerText = "Имя: Мубориз";
-document.getElementById("servicesTitle").innerText = "Услуги";
-document.getElementById("services").innerHTML =
-"Мини сайт — 100 сомон<br>Стандартный — 300 сомон<br>Большой сайт — 500 сомон";
 
-document.getElementById("call").innerText = "Позвонить 📞";
-document.getElementById("sms").innerText = "SMS ✉️";
-document.getElementById("route").innerText = "Маршрут 📍";
-document.getElementById("wa").innerText = "WhatsApp 💬";
+function openPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 
-if(lang === "tj"){
-document.getElementById("title").innerText = "👑 MUBORIZ WEB STUDIO 👑";
-document.getElementById("subtitle").innerText = "Сохтани сомонаҳо • Website Creation";
-document.getElementById("name").innerText = "Ном: Мубориз";
-document.getElementById("servicesTitle").innerText = "Хизматҳо";
-document.getElementById("services").innerHTML =
-"Сомонаи хурд — 100 сомон<br>Миёна — 300 сомон<br>Калон — 500 сомон";
+/* ===== SIMPLE AI CHAT (local simulation) ===== */
+function send(){
+let m=document.getElementById("msg").value;
+if(!m) return;
 
-document.getElementById("call").innerText = "Занг 📞";
-document.getElementById("sms").innerText = "SMS ✉️";
-document.getElementById("route").innerText = "Нақша 📍";
-document.getElementById("wa").innerText = "WhatsApp 💬";
+let box=document.getElementById("box");
+
+box.innerHTML+="<p>🟡 Ты: "+m+"</p>";
+
+let reply="Я пока учусь, но скоро стану умным AI 🤖✨";
+
+if(m.includes("привет")) reply="Привет 👑 рад тебя видеть!";
+if(m.includes("цена")) reply="Сайт от 100 до 500 сомон 💛";
+if(m.includes("мубориз")) reply="Это твой создатель 👑";
+
+box.innerHTML+="<p>🤖 AI: "+reply+"</p>";
+
+document.getElementById("msg").value="";
 }
-}
+
 </script>
 
 </body>
