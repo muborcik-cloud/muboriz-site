@@ -1,164 +1,112 @@
-<div class="card">
-<h2>🎤 Голосовой помощник</h2>
-<button onclick="startVoice()">🎙️ Говорить</button>
-</div>
-
+<!-- 🔊 Озвучивание ответов AI -->
 <script>
-function startVoice(){
-const SpeechRecognition =
-window.SpeechRecognition ||
-window.webkitSpeechRecognition;
-
-if(!SpeechRecognition){
-alert("Голосовой ввод не поддерживается");
-return;
-}
-
-const recognition = new SpeechRecognition();
-recognition.lang = "ru-RU";
-
-recognition.start();
-
-recognition.onresult = function(event){
-document.getElementById("msg").value =
-event.results[0][0].transcript;
-};
+function speak(text){
+const speech = new SpeechSynthesisUtterance(text);
+speech.lang = "ru-RU";
+speech.rate = 1;
+speech.pitch = 1;
+speech.volume = 1;
+speechSynthesis.speak(speech);
 }
 </script>
 
-<div class="card">
-<h2>🌐 Язык</h2>
-
-<button onclick="setRu()">🇷🇺 Русский</button>
-<button onclick="setTj()">🇹🇯 Тоҷикӣ</button>
-</div>
-
-<script>
-function setRu(){
-document.querySelector(".logo").innerHTML =
-"👑 MUBORIZ STUDIO";
-}
-
-function setTj(){
-document.querySelector(".logo").innerHTML =
-"👑 МУБОРИЗ СТУДИО";
-}
-</script>
-
-<div class="card">
-<h2>📝 Заказать сайт</h2>
-
-<input id="name" placeholder="Ваше имя">
-
-<br><br>
-
-<select id="tarif">
-<option>Маленький сайт — 100 сомони</option>
-<option>Средний сайт — 300 сомони</option>
-<option>Большой сайт — 500 сомони</option>
-</select>
-
-<br><br>
-
-<button onclick="order()">Отправить заказ</button>
-</div>
-
-<script>
-function order(){
-
-let name =
-document.getElementById("name").value;
-
-let tarif =
-document.getElementById("tarif").value;
-
-let text =
-"Здравствуйте! Меня зовут "
-+ name +
-". Хочу заказать: "
-+ tarif;
-
-window.open(
-"https://wa.me/992011900303?text="
-+ encodeURIComponent(text)
-);
-
-}
-</script>
-
-<style>
-.particles{
-position:fixed;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:-1;
-}
-
-.particle{
-position:absolute;
-width:6px;
-height:6px;
-background:gold;
-border-radius:50%;
-animation:fall 10s linear infinite;
-}
-
-@keyframes fall{
-from{
-transform:translateY(-100px);
-}
-to{
-transform:translateY(120vh);
-}
-}
-</style>
-
-<div class="particles" id="particles"></div>
-
-<script>
-for(let i=0;i<40;i++){
-
-let p=document.createElement("div");
-
-p.className="particle";
-
-p.style.left=Math.random()*100+"%";
-
-p.style.animationDelay=
-Math.random()*10+"s";
-
-document
-.getElementById("particles")
-.appendChild(p);
-
-}
-</script>
-
+<!-- 🤖 Улучшенные ответы -->
 <script>
 function aiReply(text){
 
 text=text.toLowerCase();
 
 if(text.includes("босс"))
-return "Наш босс — Мубориз 👑";
+return "Наш босс — Мубориз. Он создаёт современные сайты под ключ.";
 
 if(text.includes("номер"))
-return "📞 +992 011 900 303";
-
-if(text.includes("цена"))
-return "100 / 300 / 500 сомони";
+return "Номер телефона: плюс девятьсот девяносто два, ноль одиннадцать, девятьсот, триста три.";
 
 if(text.includes("услуги"))
-return "Создание сайтов под ключ.";
+return "Маленький сайт — 100 сомони. Средний сайт — 300 сомони. Большой сайт — 500 сомони.";
 
-if(text.includes("кто ты"))
-return "Я AI помощник Muboriz Studio 🤖";
+if(text.includes("о тебе") || text.includes("о мубориз"))
+return "Мубориз создаёт сайты под ключ для клиентов в Душанбе.";
 
-if(text.includes("мубориз"))
-return "Мубориз создаёт современные сайты под ключ.";
+if(text.includes("whatsapp"))
+return "Напишите в WhatsApp по номеру плюс девятьсот девяносто два, ноль одиннадцать, девятьсот, триста три.";
 
-return "Здравствуйте! Чем могу помочь?";
+return "Здравствуйте. Чем могу помочь?";
 }
 </script>
+
+<!-- 🟨 3D Золотой Куб -->
+<style>
+.cube3d{
+width:140px;
+height:140px;
+margin:30px auto;
+background:linear-gradient(45deg,gold,#00ff88);
+border-radius:25px;
+box-shadow:0 0 40px gold;
+animation:cubeSpin 8s linear infinite;
+}
+
+@keyframes cubeSpin{
+0%{
+transform:rotateX(0deg) rotateY(0deg);
+}
+100%{
+transform:rotateX(360deg) rotateY(360deg);
+}
+}
+</style>
+
+<div class="cube3d"></div>
+
+<!-- 🗺️ Карта Душанбе -->
+<div class="card">
+<h2>📍 Душанбе</h2>
+
+<iframe
+src="https://maps.google.com/maps?q=Dushanbe&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%"
+height="250"
+style="border:0;border-radius:15px;">
+</iframe>
+</div>
+
+<!-- ⭐ Отзывы -->
+<div class="card">
+<h2>⭐ Отзывы</h2>
+
+<p>⭐⭐⭐⭐⭐ Очень красивый сайт! — Али</p>
+<br>
+<p>⭐⭐⭐⭐⭐ Быстро и качественно! — Фаррух</p>
+<br>
+<p>⭐⭐⭐⭐⭐ Отличная работа! — Рустам</p>
+</div>
+
+<!-- 💬 Быстрые вопросы -->
+<div class="card">
+<h2>⚡ Быстрые вопросы</h2>
+
+<button onclick="quick('Кто босс?')">Кто босс?</button>
+
+<button onclick="quick('Номер')">Номер</button>
+
+<button onclick="quick('Услуги')">Услуги</button>
+
+<button onclick="quick('О Мубориз')">О Мубориз</button>
+
+</div>
+
+<script>
+function quick(text){
+
+document.getElementById("msg").value=text;
+
+send();
+
+}
+</script>
+
+<!-- 🔊 ВСТАВЬ В СВОЮ ФУНКЦИЮ send() -->
+<!-- После строки с ответом AI добавь: -->
+
+<!-- speak(answer); -->
