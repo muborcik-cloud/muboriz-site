@@ -3,220 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мубориз | FULL PRO Web Studio</title>
+<title>MUBORIZ WEB STUDIO</title>
 
 <style>
 body{
 margin:0;
 font-family:Arial;
-background:linear-gradient(135deg,#0a0a0a,#1a1200);
+background:linear-gradient(135deg,#000,#1a1a1a);
 color:white;
-}
-
-header{
 text-align:center;
-padding:70px 20px;
-background:radial-gradient(circle,#ffd700,#000);
 }
 
 h1{
-font-size:55px;
-color:#ffd700;
-text-shadow:0 0 20px gold;
+color:gold;
+font-size:45px;
+margin-top:40px;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
+p{
+opacity:0.8;
 }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:rgba(255,215,0,0.08);
-border:1px solid rgba(255,215,0,0.3);
-padding:20px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-}
-
-.price{
-color:#ffd700;
-font-size:22px;
-font-weight:bold;
+.menu{
+margin-top:20px;
 }
 
 .btn{
-display:inline-block;
-padding:12px;
-margin:5px;
-border-radius:10px;
+display:block;
+width:80%;
+margin:12px auto;
+padding:16px;
+border-radius:15px;
 text-decoration:none;
 font-weight:bold;
-}
-
-.gold{background:#ffd700;color:#000}
-.dark{background:#111;color:#fff;border:1px solid gold}
-
-input, textarea{
-width:100%;
-padding:10px;
-margin:5px 0;
-border-radius:8px;
-border:none;
-outline:none;
-}
-
-button{
-width:100%;
-padding:12px;
-background:#ffd700;
-border:none;
-font-weight:bold;
-cursor:pointer;
-}
-
-#chat{
-position:fixed;
-bottom:20px;
-right:20px;
-width:280px;
-background:#111;
-border:1px solid gold;
-border-radius:15px;
-overflow:hidden;
-}
-
-#top{
-background:#ffd700;
-color:#000;
-padding:10px;
-text-align:center;
-font-weight:bold;
-}
-
-#msgs{
-height:150px;
-overflow:auto;
-padding:10px;
-font-size:13px;
-}
-
-#box{
-display:flex;
-border-top:1px solid #333;
-}
-
-#txt{
-flex:1;
-padding:10px;
-border:none;
-background:#000;
 color:white;
+transition:0.3s;
 }
 
-#btn{
-background:gold;
+.btn:hover{
+transform:scale(1.05);
+}
+
+.whatsapp{background:#25D366;}
+.call{background:#2196F3;}
+.map{background:#FF9800;}
+.about{background:gold;color:black;}
+
+.lang button{
+margin:5px;
+padding:8px 12px;
 border:none;
-padding:10px;
+border-radius:8px;
 cursor:pointer;
-font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>МУБОРИЗ</h1>
-<p>FULL PRO WEB STUDIO • Душанбе</p>
+<h1>👑 MUBORIZ WEB STUDIO 👑</h1>
 
-<a class="btn gold" href="tel:+992011900303">📞 Позвонить</a>
-<a class="btn dark" href="https://wa.me/992011900303">💬 WhatsApp</a>
-</header>
+<p id="text">Создание сайтов • Website Creation</p>
 
-<div class="container">
-
-<h2>💼 Услуги</h2>
-
-<div class="cards">
-<div class="card">
-<h3>Миленький сайт</h3>
-<div class="price">100 сомони</div>
+<div class="lang">
+<button onclick="setLang('ru')">Русский 🇷🇺</button>
+<button onclick="setLang('tj')">Тоҷикӣ 🇹🇯</button>
 </div>
 
-<div class="card">
-<h3>Бизнес сайт</h3>
-<div class="price">300 сомони</div>
-</div>
+<p>📞 +992 011 900 303</p>
 
-<div class="card">
-<h3>Premium сайт</h3>
-<div class="price">500 сомони</div>
-</div>
-</div>
+<div class="menu">
 
-<h2>📩 Заказать сайт</h2>
+<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
+<a class="btn call" href="tel:+992011900303">Позвонить</a>
+<a class="btn map" href="https://maps.google.com">Маршрут</a>
+<a class="btn about" href="info.html">⭐ Обо мне</a>
 
-<form onsubmit="sendOrder(); return false;">
-<input id="name" placeholder="Ваше имя">
-<input id="phone" placeholder="Телефон">
-<textarea id="msg" placeholder="Что хотите заказать?"></textarea>
-<button type="submit">Отправить заявку</button>
-</form>
-
-</div>
-
-<!-- CHAT -->
-<div id="chat">
-<div id="top">AI Ассистент</div>
-<div id="msgs"></div>
-<div id="box">
-<input id="txt" placeholder="Напиши..." />
-<button id="btn">➤</button>
-</div>
 </div>
 
 <script>
-function bot(t){
-t=t.toLowerCase();
-
-if(t.includes("имя")) return "Мубориз";
-if(t.includes("номер")) return "+992 011 900 303";
-if(t.includes("цена")) return "100 / 300 / 500 сомони";
-if(t.includes("заказать")) return "Заполните форму ниже или напишите в WhatsApp";
-
-return "Я знаю: имя, номер, цена, заказ";
+function setLang(lang){
+if(lang=='ru'){
+document.getElementById('text').innerText="Создание сайтов • Website Creation";
 }
-
-function send(){
-let t=document.getElementById("txt").value;
-if(!t)return;
-
-let m=document.getElementById("msgs");
-
-m.innerHTML+=`<div><b>Вы:</b> ${t}</div>`;
-m.innerHTML+=`<div><b>Бот:</b> ${bot(t)}</div>`;
-
-document.getElementById("txt").value="";
-m.scrollTop=m.scrollHeight;
+if(lang=='tj'){
+document.getElementById('text').innerText="Сохтани сайтҳо • Website Creation";
 }
-
-document.getElementById("btn").onclick=send;
-
-function sendOrder(){
-let n=document.getElementById("name").value;
-let p=document.getElementById("phone").value;
-let m=document.getElementById("msg").value;
-
-alert("Заявка отправлена! Я скоро свяжусь с вами.");
-
-console.log("ORDER:", n, p, m);
 }
 </script>
 
