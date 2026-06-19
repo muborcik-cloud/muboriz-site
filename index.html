@@ -3,175 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REAL AI APP</title>
+<title>Muboriz Studio</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-/* ===== GOLD APP UI ===== */
-body{
+*{
 margin:0;
-font-family:Arial;
-background:black;
-color:white;
-overflow:hidden;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-/* 3D BACKGROUND */
-.bg{
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* VIDEO */
+.bg-video{
 position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-background:
-radial-gradient(circle at 20% 20%, rgba(255,215,0,0.2), transparent 40%),
-radial-gradient(circle at 80% 80%, rgba(0,150,255,0.1), transparent 40%);
-animation:move 6s infinite alternate;
+object-fit:cover;
+z-index:-2;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8));
 z-index:-1;
 }
 
-@keyframes move{
-0%{transform:scale(1);}
-100%{transform:scale(1.2);}
-}
-
-/* APP NAV */
-.nav{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:rgba(0,0,0,0.8);
-backdrop-filter:blur(10px);
-padding:10px;
-}
-
-/* PAGES */
-.page{
-display:none;
-padding:20px;
-animation:fade .4s ease;
-}
-
-.active{display:block;}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-/* GOLD TEXT */
-h1{
+/* HEADER */
+header{
 text-align:center;
+padding:40px 20px;
+}
+
+header h1{
+font-size:36px;
 color:gold;
 text-shadow:0 0 20px gold;
 }
 
-/* CARD */
-.card{
-background:rgba(255,255,255,0.06);
-padding:15px;
-border-radius:15px;
-margin:10px;
-backdrop-filter:blur(10px);
+header p{
+margin-top:10px;
+color:#8cff8c;
 }
 
-/* BUTTON */
+/* 3D CARD */
+.card{
+width:90%;
+max-width:600px;
+margin:15px auto;
+padding:20px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,215,0,.2);
+border-radius:20px;
+box-shadow:0 0 30px rgba(255,215,0,.15);
+transform-style:preserve-3d;
+transition:.4s;
+}
+
+.card:hover{
+transform:rotateX(5deg) rotateY(-5deg) scale(1.02);
+}
+
+/* BUTTONS */
 .btn{
 display:block;
-margin:10px;
-padding:12px;
-border-radius:12px;
-background:gold;
-color:black;
+width:90%;
+max-width:500px;
+margin:10px auto;
+padding:15px;
 text-align:center;
-font-weight:bold;
+border-radius:15px;
 text-decoration:none;
+font-weight:bold;
+color:white;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.whatsapp{background:#25D366;}
+.call{background:#2196F3;}
+.sms{background:#ff9800;}
+.route{background:gold;color:black;}
+
+/* SERVICES */
+.services{
+line-height:2;
+font-size:18px;
+}
+
+/* CHAT */
+.chat-box{
+height:260px;
+overflow:auto;
+background:rgba(255,255,255,.04);
+border-radius:15px;
+padding:10px;
+margin-bottom:10px;
+}
+
+.input-row{
+display:flex;
+gap:10px;
 }
 
 input{
-width:70%;
-padding:10px;
+flex:1;
+padding:12px;
 border:none;
 border-radius:10px;
+outline:none;
 }
 
+button{
+padding:12px 18px;
+border:none;
+border-radius:10px;
+background:gold;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* FLOATING GLOW */
+.glow{
+position:fixed;
+width:250px;
+height:250px;
+background:gold;
+filter:blur(120px);
+opacity:.15;
+top:10%;
+left:-50px;
+z-index:-1;
+}
+
+.glow2{
+position:fixed;
+width:250px;
+height:250px;
+background:#00ff88;
+filter:blur(120px);
+opacity:.15;
+bottom:10%;
+right:-50px;
+z-index:-1;
+}
 </style>
 </head>
-
 <body>
 
-<div class="bg"></div>
+<video class="bg-video" autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-city-night-traffic-1578/1080p.mp4" type="video/mp4">
+</video>
 
-<!-- HOME -->
-<div class="page active" id="home">
+<div class="overlay"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
 
-<h1>👑 MUBORIZ AI APP 👑</h1>
-
-<div class="card">
-<p>💛 Web Studio</p>
-<p>📞 +992 011 900 303</p>
-</div>
-
-<a class="btn" href="https://wa.me/992011900303">WhatsApp</a>
-</div>
-
-<!-- AI -->
-<div class="page" id="ai">
-
-<h1>🤖 REAL AI</h1>
-
-<div class="card" id="chat"></div>
-
-<input id="msg" placeholder="Напиши...">
-<button class="btn" onclick="send()">Send</button>
-
-</div>
-
-<!-- ORDER -->
-<div class="page" id="order">
-
-<h1>🛒 Заказать</h1>
+<header>
+<h1>👑 MUBORIZ STUDIO</h1>
+<p>Создание сайтов под ключ</p>
+</header>
 
 <div class="card">
-<p>100 / 300 / 500 сомон</p>
+<h2>👤 Обо мне</h2>
+<br>
+<p><b>Мубориз</b></p>
+<p>Создаю сайты под ключ.</p>
+<p>Современные, красивые и быстрые сайты.</p>
 </div>
 
-<a class="btn" href="https://wa.me/992011900303">Заказать</a>
-
+<div class="card">
+<h2>💰 Услуги</h2>
+<br>
+<div class="services">
+📱 Маленький сайт — 100 сомони<br>
+💻 Средний сайт — 300 сомони<br>
+🚀 Большой сайт — 500 сомони
+</div>
 </div>
 
-<!-- NAV -->
-<div class="nav">
-<button onclick="openPage('home')">🏠</button>
-<button onclick="openPage('ai')">🤖</button>
-<button onclick="openPage('order')">🛒</button>
+<a class="btn whatsapp" href="https://wa.me/992011900303">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+
+<a class="btn call" href="tel:+992011900303">
+<i class="fas fa-phone"></i> Позвонить
+</a>
+
+<a class="btn sms" href="sms:+992011900303">
+<i class="fas fa-message"></i> SMS
+</a>
+
+<a class="btn route" href="https://maps.google.com/?q=Dushanbe" target="_blank">
+<i class="fas fa-location-dot"></i> Построить маршрут
+</a>
+
+<div class="card">
+<h2>🤖 AI Чат</h2>
+<br>
+
+<div class="chat-box" id="chatBox">
+<p>🤖 AI: Привет! Я помощник Muboriz Studio.</p>
+</div>
+
+<div class="input-row">
+<input id="msg" placeholder="Напишите вопрос...">
+<button onclick="sendMessage()">Отправить</button>
+</div>
 </div>
 
 <script>
 
-/* NAV */
-function openPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+function sendMessage(){
+
+let input=document.getElementById("msg");
+let text=input.value.trim();
+
+if(text==="") return;
+
+let box=document.getElementById("chatBox");
+
+box.innerHTML+=`<p>🟡 Вы: ${text}</p>`;
+
+let t=text.toLowerCase();
+let answer="Я помощник Muboriz Studio 👑";
+
+if(t.includes("босс")){
+answer="Наш босс — Мубориз 👑";
+}
+else if(t.includes("номер")){
+answer="Номер телефона: +992 011 900 303 📞";
+}
+else if(t.includes("кто ты")){
+answer="Я AI помощник сайта Muboriz Studio 🤖";
+}
+else if(t.includes("о тебе") || t.includes("о мубориз")){
+answer="Мубориз создаёт сайты под ключ. Маленький сайт — 100 сомони, средний — 300 сомони, большой — 500 сомони.";
+}
+else if(t.includes("цена") || t.includes("услуги")){
+answer="Маленький сайт — 100 сомони, средний — 300 сомони, большой — 500 сомони.";
+}
+else if(t.includes("whatsapp")){
+answer="Напишите в WhatsApp: +992 011 900 303";
+}
+else{
+answer="Спасибо за вопрос. Для подробностей свяжитесь с Муборизом через WhatsApp 📱";
 }
 
-/* SIMPLE AI (NEXT STEP → API UPGRADE) */
-function send(){
-let m=document.getElementById("msg").value.toLowerCase();
-let chat=document.getElementById("chat");
+box.innerHTML+=`<p>🤖 AI: ${answer}</p>`;
 
-let reply="Я AI помощник 🤖";
-
-if(m.includes("босс")) reply="Босс — Мубориз 👑";
-if(m.includes("номер")) reply="+992 011 900 303";
-if(m.includes("о тебе")) reply="Я создаю сайты под ключ 💛";
-
-chat.innerHTML+="<p>🟡 Ты: "+m+"</p>";
-chat.innerHTML+="<p>🤖 AI: "+reply+"</p>";
-
-document.getElementById("msg").value="";
+box.scrollTop=box.scrollHeight;
+input.value="";
 }
 
 </script>
