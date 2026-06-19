@@ -3,139 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>О нас | Мубориз Web Studio</title>
+<title>Обо мне</title>
 
 <style>
 body{
 margin:0;
-font-family:Arial,sans-serif;
+font-family:Arial;
 background:#000;
 color:white;
 text-align:center;
 }
 
-.hero{
-padding:60px 20px;
-background:linear-gradient(135deg,#000,#3a2500);
-}
-
 h1{
-font-size:55px;
 color:gold;
-margin-bottom:10px;
-}
-
-h2{
-color:white;
-font-size:30px;
-}
-
-.box{
-max-width:900px;
-margin:30px auto;
-padding:30px;
-background:#111;
-border:3px solid gold;
-border-radius:25px;
-}
-
-.lang-btn{
-background:gold;
-color:black;
-border:none;
-padding:12px 25px;
-margin:10px;
-font-size:18px;
-font-weight:bold;
-border-radius:15px;
-cursor:pointer;
 }
 
 .btn{
 display:block;
 width:80%;
-max-width:500px;
-margin:20px auto;
-padding:20px;
+margin:10px auto;
+padding:15px;
+border-radius:12px;
 text-decoration:none;
-font-size:24px;
 font-weight:bold;
-border-radius:20px;
 color:white;
 }
 
-.whatsapp{
-background:#25D366;
-}
-
-.call{
-background:#ff5722;
-}
-
-.back{
-background:gold;
-color:black;
-}
-
-p{
-font-size:22px;
-line-height:1.6;
-}
+.back{background:#444;}
+.whatsapp{background:#25D366;}
+.call{background:#2196F3;}
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-<h1>👑 МУБОРИЗ</h1>
-<h2>WEB STUDIO</h2>
-</div>
+<h1>⭐ Обо мне</h1>
 
-<div style="margin-top:20px;">
-<button class="lang-btn" onclick="ru()">🇷🇺 Русский</button>
-<button class="lang-btn" onclick="tj()">🇹🇯 Тоҷикӣ</button>
-</div>
+<p>Меня зовут Мубориз</p>
+<p>Я создаю сайты</p>
+<p>📞 +992 011 900 303</p>
 
-<div class="box">
-<h2 id="title">Почему выбирают нас?</h2>
+<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
+<a class="btn call" href="tel:+992011900303">Позвонить</a>
 
-<p id="text">
-Мы создаём красивые современные сайты под ключ.
-Быстро, качественно и по доступной цене.
-Сайт поможет вам находить новых клиентов и развивать бизнес.
-</p>
-
-<p id="phone">
-📞 Телефон: +992 011 900 303
-</p>
-
-<a class="btn whatsapp" href="https://wa.me/992011900303">
-WhatsApp
-</a>
-
-<a class="btn call" href="tel:+992011900303">
-Позвонить
-</a>
-
-<a class="btn back" href="index.html">
-⬅ Вернуться на главную
-</a>
-
-</div>
-
-<script>
-function ru(){
-document.getElementById("title").innerHTML="Почему выбирают нас?";
-document.getElementById("text").innerHTML=
-"Мы создаём красивые современные сайты под ключ. Быстро, качественно и по доступной цене. Сайт поможет вам находить новых клиентов и развивать бизнес.";
-}
-
-function tj(){
-document.getElementById("title").innerHTML="Чаро моро интихоб мекунанд?";
-document.getElementById("text").innerHTML=
-"Мо сайтҳои зебо ва замонавиро месозем. Тез, босифат ва бо нархи дастрас. Сайт барои пайдо кардани мизоҷони нав ва рушди кори шумо кӯмак мекунад.";
-}
-</script>
+<a class="btn back" href="index.html">⬅ Назад</a>
 
 </body>
 </html>
