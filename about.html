@@ -1,22 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Обо мне</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мубориз Web Studio</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+text-align:center;
+}
+
+.hero{
+padding:60px 20px;
+background:linear-gradient(135deg,#000,#3d2a00,#000);
+}
+
+.hero h1{
+font-size:60px;
+color:gold;
+}
+
+.hero h2{
+font-size:28px;
+margin-top:10px;
+}
+
+.lang{
+margin:20px;
+}
+
+.lang button{
+background:gold;
+border:none;
+padding:12px 25px;
+margin:5px;
+border-radius:15px;
+font-size:18px;
+font-weight:bold;
+}
+
+.card{
+width:90%;
+max-width:800px;
+margin:20px auto;
+padding:30px;
+background:#111;
+border:2px solid gold;
+border-radius:25px;
+}
+
+.card h2{
+color:gold;
+font-size:35px;
+margin-bottom:20px;
+}
+
+.card p{
+font-size:22px;
+line-height:1.8;
+}
+
+.btn{
+display:block;
+width:90%;
+max-width:500px;
+margin:15px auto;
+padding:20px;
+font-size:24px;
+text-decoration:none;
+border-radius:15px;
+color:white;
+font-weight:bold;
+}
+
+.whatsapp{
+background:#25D366;
+}
+
+.call{
+background:#ff6b00;
+}
+
+.home{
+background:gold;
+color:black;
+}
+
+footer{
+padding:30px;
+color:#aaa;
+}
+</style>
+
+<script>
+function ru(){
+document.getElementById("title").innerHTML="Покупайте у нас самые красивые сайты";
+document.getElementById("text").innerHTML="Создаём современные сайты для бизнеса, магазинов, услуг и личных проектов. Быстро, красиво и недорого.";
+}
+
+function tj(){
+document.getElementById("title").innerHTML="Аз мо сайтҳои зеботаринро фармоиш диҳед";
+document.getElementById("text").innerHTML="Барои бизнес, мағоза, хизматрасонӣ ва лоиҳаҳои шахсӣ сайтҳои замонавӣ месозем.";
+}
+</script>
+
 </head>
-<body style="background:black;color:white;text-align:center;font-family:Arial;">
+<body>
 
-<h1>👑 Обо мне</h1>
+<div class="hero">
+<h1>👑 МУБОРИЗ</h1>
+<h2>WEB STUDIO</h2>
+<p>Душанбе, Тоҷикистон</p>
+</div>
 
-<p>Меня зовут Мубориз.</p>
+<div class="lang">
+<button onclick="ru()">🇷🇺 Русский</button>
+<button onclick="tj()">🇹🇯 Тоҷикӣ</button>
+</div>
 
-<p>Я создаю сайты под ключ в Душанбе.</p>
+<div class="card">
 
-<p>Мини-сайт — 100 сомони</p>
-<p>Нормальный сайт — 300 сомони</p>
-<p>Большой сайт — 500 сомони</p>
+<h2 id="title">Покупайте у нас самые красивые сайты</h2>
 
-<a href="index.html">⬅ На главную</a>
+<p id="text">
+Создаём современные сайты для бизнеса, магазинов, услуг и личных проектов. Быстро, красиво и недорого.
+</p>
+
+<br>
+
+<h2>📞 +992 011 900 303</h2>
+
+<a class="btn whatsapp" href="https://wa.me/992011900303">
+💬 WhatsApp
+</a>
+
+<a class="btn call" href="tel:+992011900303">
+📞 Позвонить
+</a>
+
+<a class="btn home" href="index.html">
+🏠 Главная страница
+</a>
+
+</div>
+
+<footer>
+© Мубориз Web Studio
+</footer>
 
 </body>
 </html>
