@@ -7,46 +7,63 @@
 
 <style>
 body{
-margin:0;
-font-family:Arial;
-background:#000;
-color:white;
-text-align:center;
+    margin:0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#111827,#0f172a);
+    color:white;
+    text-align:center;
+}
+
+.card{
+    margin:20px;
+    padding:20px;
+    border-radius:15px;
+    background: rgba(255,255,255,0.05);
 }
 
 h1{
-color:gold;
+    font-size:28px;
 }
 
-.btn{
-display:block;
-width:80%;
-margin:10px auto;
-padding:15px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
-color:white;
+.price{
+    background:#22c55e;
+    padding:10px;
+    border-radius:10px;
+    margin:10px;
+    font-weight:bold;
 }
 
-.back{background:#444;}
-.whatsapp{background:#25D366;}
-.call{background:#2196F3;}
+.back{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 20px;
+    background:#3b82f6;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+}
 </style>
 </head>
 
 <body>
 
-<h1>⭐ Обо мне</h1>
+<div class="card">
 
-<p>Меня зовут Мубориз</p>
-<p>Я создаю сайты</p>
-<p>📞 +992 011 900 303</p>
+<h1>👤 Мубориз</h1>
 
-<a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
-<a class="btn call" href="tel:+992011900303">Позвонить</a>
+<p>Я создаю современные веб-сайты</p>
 
-<a class="btn back" href="index.html">⬅ Назад</a>
+<p>📞 Номер: +992 011 900 303</p>
+
+<h2>💰 Цены:</h2>
+
+<div class="price">100 сом — маленький сайт</div>
+<div class="price">300 сом — нормальный сайт</div>
+<div class="price">500 сом — большой сайт</div>
+
+</div>
+
+<a class="back" href="index.html">⬅ Назад</a>
 
 </body>
 </html>
