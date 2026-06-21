@@ -279,6 +279,152 @@ ru=true;
 
 }
 </script>
+<!-- ВСТАВЬ ПЕРЕД </body> -->
 
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<div id="tsparticles"></div>
+
+<style>
+#tsparticles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.counter{
+text-align:center;
+font-size:28px;
+margin:20px;
+color:gold;
+font-weight:bold;
+}
+
+.review{
+padding:15px;
+margin-top:15px;
+border-radius:15px;
+background:rgba(255,255,255,.08);
+}
+
+.calc input{
+width:100%;
+padding:15px;
+margin:10px 0;
+border-radius:12px;
+border:none;
+}
+
+.calc button{
+width:100%;
+padding:15px;
+background:gold;
+border:none;
+font-weight:bold;
+border-radius:12px;
+}
+
+.music{
+position:fixed;
+left:20px;
+bottom:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:gold;
+border:none;
+font-size:24px;
+}
+</style>
+
+<div class="card">
+<h2 class="gold">👥 Отзывы</h2>
+
+<div class="review">
+★★★★★ Очень хороший сайт! — Али
+</div>
+
+<div class="review">
+★★★★★ Быстро сделал сайт. — Фаррух
+</div>
+</div>
+
+<div class="card calc">
+<h2 class="gold">💰 Калькулятор</h2>
+
+<input id="pages" type="number" placeholder="Количество страниц">
+
+<button onclick="calcPrice()">Рассчитать</button>
+
+<h2 id="result"></h2>
+</div>
+
+<div class="card">
+<h2 class="gold">📊 Посетители</h2>
+<div class="counter" id="counter">1257</div>
+</div>
+
+<div class="card">
+<h2 class="gold">📩 Заказ сайта</h2>
+
+<form action="https://formsubmit.co/muboriz@example.com" method="POST">
+
+<input
+style="width:100%;padding:15px;margin:10px 0;"
+type="text"
+placeholder="Ваше имя"
+required>
+
+<input
+style="width:100%;padding:15px;margin:10px 0;"
+type="tel"
+placeholder="Телефон"
+required>
+
+<button
+style="width:100%;padding:15px;background:gold;border:none;">
+Отправить заказ
+</button>
+
+</form>
+</div>
+
+<button class="music" onclick="musicToggle()">🎵</button>
+
+<audio id="bgmusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+tsParticles.load("tsparticles",{
+particles:{
+number:{value:80},
+color:{value:"#FFD700"},
+move:{enable:true,speed:2},
+size:{value:3}
+}
+});
+
+function calcPrice(){
+let p=document.getElementById("pages").value;
+document.getElementById("result").innerHTML=
+"Цена: "+(p*100)+" сомони";
+}
+
+function musicToggle(){
+let m=document.getElementById("bgmusic");
+
+if(m.paused){
+m.play();
+}else{
+m.pause();
+}
+}
+
+</script>
 </body>
 </html>
