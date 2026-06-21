@@ -6,71 +6,279 @@
 <title>MUBORIZ WEB STUDIO</title>
 
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
+}
+
+body{
 background:#000;
 color:white;
+overflow-x:hidden;
+}
+
+.gold{
+background:linear-gradient(90deg,#ffcc00,#fff4a3,#ffcc00);
+background-size:300% 300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gold 3s infinite;
+}
+
+@keyframes gold{
+0%{background-position:0%}
+50%{background-position:100%}
+100%{background-position:0%}
+}
+
+.hero{
 text-align:center;
-}
-
-.header{
 padding:40px 20px;
-background:linear-gradient(135deg,#000,#222);
 }
 
-h1{
-font-size:48px;
-color:gold;
+.hero h1{
+font-size:50px;
+font-weight:bold;
+}
+
+.hero p{
+font-size:20px;
+margin-top:15px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+margin:20px;
+padding:25px;
+border-radius:25px;
+backdrop-filter:blur(10px);
+transform-style:preserve-3d;
+transition:.5s;
+box-shadow:0 0 30px gold;
+}
+
+.card:hover{
+transform:rotateY(10deg) rotateX(10deg) scale(1.03);
 }
 
 .btn{
 display:block;
-width:80%;
-max-width:350px;
-margin:15px auto;
-padding:18px;
-border-radius:20px;
-font-size:24px;
-font-weight:bold;
 text-decoration:none;
 color:white;
+font-size:22px;
+font-weight:bold;
+padding:18px;
+margin:12px 0;
+border-radius:20px;
+text-align:center;
 }
 
 .whatsapp{background:#25D366;}
 .call{background:#2196F3;}
-.route{background:#FF9800;}
-.about{background:gold;color:black;}
+.sms{background:#ff9800;}
 
 .lang{
-margin:20px;
-font-size:18px;
-color:#ccc;
+position:fixed;
+top:15px;
+right:15px;
+padding:10px 15px;
+background:gold;
+border:none;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+}
+
+.price{
+font-size:22px;
+margin:15px 0;
+}
+
+iframe{
+width:100%;
+height:350px;
+border:none;
+border-radius:20px;
+}
+
+.chat-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:gold;
+color:black;
+font-size:30px;
+border:none;
+cursor:pointer;
+}
+
+.chat{
+position:fixed;
+right:20px;
+bottom:100px;
+width:300px;
+background:#111;
+border-radius:20px;
+padding:15px;
+display:none;
+box-shadow:0 0 20px gold;
+}
+
+.chat input{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+.chat p{
+margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
+<button class="lang" onclick="switchLang()">EN</button>
 
-<h1>👑 MUBORIZ WEB STUDIO 👑</h1>
+<div class="hero">
+<h1 class="gold">👑 MUBORIZ WEB STUDIO 👑</h1>
+<p id="sub">Создание сайтов под ключ</p>
+</div>
 
-<p class="lang">
-Русский 🇷🇺 | Тоҷикӣ 🇹🇯
+<div class="card">
+<h2 class="gold" id="aboutTitle">Обо мне</h2>
+<br>
+<p id="aboutText">
+Меня зовут Мубориз. Я создаю веб-сайты под ключ.
 </p>
+</div>
 
-<h2>📞 +992 011 900 303</h2>
+<div class="card">
+<h2 class="gold" id="priceTitle">Цены</h2>
+
+<div class="price">💎 Маленький сайт — 100 сомони</div>
+<div class="price">🚀 Средний сайт — 300 сомони</div>
+<div class="price">👑 Большой сайт — 500 сомони</div>
+</div>
+
+<div class="card">
+<h2 class="gold">Контакты</h2>
+<br>
 
 <a class="btn whatsapp" href="https://wa.me/992011900303">WhatsApp</a>
 
 <a class="btn call" href="tel:+992011900303">Позвонить</a>
 
-<a class="btn route" href="https://maps.google.com">Маршрут</a>
+<a class="btn sms" href="sms:+992011900303">SMS</a>
 
-<a class="btn about" href="info.html">⭐ Обо мне</a>
+<h2 style="margin-top:20px;">📞 +992 011 900 303</h2>
 
 </div>
+
+<div class="card">
+<h2 class="gold" id="mapTitle">Маршрут Душанбе</h2>
+<br>
+
+<iframe
+src="https://maps.google.com/maps?q=dushanbe&t=&z=12&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</div>
+
+<div class="chat" id="chat">
+
+<h3>AI Assistant</h3>
+
+<input
+id="msg"
+placeholder="Напишите вопрос..."
+onkeydown="if(event.key==='Enter')reply()">
+
+<p id="answer"></p>
+
+</div>
+
+<button class="chat-btn" onclick="toggleChat()">🤖</button>
+
+<script>
+
+function toggleChat(){
+let c=document.getElementById("chat");
+c.style.display=c.style.display=="block"?"none":"block";
+}
+
+function reply(){
+
+let q=document.getElementById("msg").value.toLowerCase();
+
+let a="Я не знаю ответа.";
+
+if(q.includes("boss") || q.includes("босс"))
+a="Наш босс — Мубориз.";
+
+if(q.includes("номер") || q.includes("phone"))
+a="Номер Мубориза: +992 011 900 303";
+
+if(q.includes("владелец") || q.includes("owner"))
+a="Владелец сайта — Мубориз.";
+
+if(q.includes("цена") || q.includes("price"))
+a="100, 300 и 500 сомони.";
+
+document.getElementById("answer").innerText=a;
+}
+
+let ru=true;
+
+function switchLang(){
+
+if(ru){
+
+document.getElementById("sub").innerText="Website Development";
+
+document.getElementById("aboutTitle").innerText="About Me";
+
+document.getElementById("aboutText").innerText=
+"My name is Muboriz. I create websites.";
+
+document.getElementById("priceTitle").innerText="Prices";
+
+document.getElementById("mapTitle").innerText="Dushanbe Route";
+
+document.querySelector(".lang").innerText="RU";
+
+ru=false;
+
+}else{
+
+document.getElementById("sub").innerText=
+"Создание сайтов под ключ";
+
+document.getElementById("aboutTitle").innerText=
+"Обо мне";
+
+document.getElementById("aboutText").innerText=
+"Меня зовут Мубориз. Я создаю веб-сайты под ключ.";
+
+document.getElementById("priceTitle").innerText=
+"Цены";
+
+document.getElementById("mapTitle").innerText=
+"Маршрут Душанбе";
+
+document.querySelector(".lang").innerText="EN";
+
+ru=true;
+
+}
+
+}
+</script>
 
 </body>
 </html>
