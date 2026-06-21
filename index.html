@@ -424,7 +424,116 @@ m.play();
 m.pause();
 }
 }
-
 </script>
+ <!-- ЗАГРУЗКА -->
+<div id="loader">
+  <h1>MUBORIZ WEB STUDIO</h1>
+</div>
+
+<style>
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+#loader h1{
+font-size:40px;
+background:linear-gradient(90deg,gold,#fff,gold);
+background-size:300% 300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 2s infinite;
+}
+
+@keyframes shine{
+0%{background-position:0%}
+100%{background-position:100%}
+}
+
+.order-btn{
+display:block;
+margin:20px;
+padding:20px;
+text-align:center;
+background:gold;
+color:black;
+font-weight:bold;
+font-size:24px;
+border-radius:20px;
+text-decoration:none;
+box-shadow:0 0 20px gold;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin:20px;
+}
+
+.stat{
+background:rgba(255,255,255,.08);
+padding:20px;
+border-radius:20px;
+text-align:center;
+min-width:140px;
+}
+</style>
+
+<div class="stats">
+
+<div class="stat">
+<h2>50+</h2>
+<p>Клиентов</p>
+</div>
+
+<div class="stat">
+<h2>100+</h2>
+<p>Проектов</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Поддержка</p>
+</div>
+
+</div>
+
+<a
+class="order-btn"
+href="https://wa.me/992011900303?text=Здравствуйте!%20Хочу%20заказать%20сайт.">
+🚀 ПОЛУЧИТЬ САЙТ
+</a>
+
+<script>
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},2500);
+
+});
+
+/* АВТО ЯЗЫК */
+
+let lang=navigator.language.toLowerCase();
+
+if(lang.includes("en")){
+if(typeof switchLang==="function"){
+switchLang();
+}
+}
+
+</script> 
 </body>
 </html>
